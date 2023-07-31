@@ -18,6 +18,7 @@
 
 <body x-data="{ openMobile: false }" class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
+
         <nav x-data="{ open: false }" class="bg-white border-gray-200 dark:bg-gray-900">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="https://flowbite.com/" class="flex items-center">
