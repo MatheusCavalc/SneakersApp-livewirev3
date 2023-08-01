@@ -4,7 +4,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\SneakersController;
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Admin\Brands\CreateBrand;
+use App\Livewire\Admin\Brands\EditBrand;
 use Illuminate\Support\Facades\Route;
+
+use App\Livewire\Admin\Brands\IndexBrand;
+use App\Livewire\Admin\IndexAdmin;
+use App\Livewire\Admin\Sneakers\CreateSneaker;
+use App\Livewire\Admin\Sneakers\EditSneaker;
+use App\Livewire\Admin\Sneakers\IndexSneaker;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +30,18 @@ Route::get('/', [HomeController::class, 'index']);
 
 
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-Route::get('/admin/sneakers', [SneakersController::class, 'index']);
-Route::get('/admin/sneakers/create', [SneakersController::class, 'create']);
-Route::get('/admin/sneakers/edit/{id}', [SneakersController::class, 'edit']);
+
+//ADMIN
+
+Route::get('/admin', IndexAdmin::class)->name('admin.index');
+
+Route::get('/admin/sneakers', IndexSneaker::class);
+Route::get('/admin/sneakers/create', CreateSneaker::class);
+Route::get('/admin/sneakers/edit/{id}', EditSneaker::class);
+
+Route::get('/admin/brands', IndexBrand::class);
+Route::get('/admin/brands/create', CreateBrand::class);
+Route::get('/admin/brands/edit/{id}', EditBrand::class);
 
 
 
@@ -44,4 +60,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

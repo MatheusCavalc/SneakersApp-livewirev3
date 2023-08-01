@@ -1,9 +1,3 @@
-@extends('layouts.admin')
-
-@section('title', 'Admin App')
-
-@section('content')
-
+<x-admin-layout>
    <h1>Oi</h1>
-
-@endsection
+</x-admin-layout>
