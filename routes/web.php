@@ -24,6 +24,9 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::get('/admin/sneakers', [SneakersController::class, 'index']);
+Route::get('/admin/sneakers/create', [SneakersController::class, 'create']);
+Route::get('/admin/sneakers/edit/{id}', [SneakersController::class, 'edit']);
+
 
 
 
