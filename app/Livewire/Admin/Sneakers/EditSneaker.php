@@ -64,7 +64,7 @@ class EditSneaker extends Component
             Sneaker::findOrFail($this->sneaker->id)->update($this->all());
             return $this->redirect('/admin/sneakers');
         } else {
-            $this->image = $this->image->store('sneakers');
+            $this->image = $this->image->store('public/sneakers');
             Storage::delete($image);
             Sneaker::findOrFail($this->sneaker->id)->update($this->all());
             return $this->redirect('/admin/sneakers');

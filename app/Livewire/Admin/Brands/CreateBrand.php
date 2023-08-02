@@ -24,7 +24,7 @@ class CreateBrand extends Component
         $this->validate();
 
         Brand::create([
-            'logo' => $this->logo->store('brands'),
+            'logo' => $this->logo->store('public/brands'),
             'name' => $this->name,
         ]);
 

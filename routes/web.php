@@ -13,6 +13,7 @@ use App\Livewire\Admin\IndexAdmin;
 use App\Livewire\Admin\Sneakers\CreateSneaker;
 use App\Livewire\Admin\Sneakers\EditSneaker;
 use App\Livewire\Admin\Sneakers\IndexSneaker;
+use App\Livewire\App\Index;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ use App\Livewire\Admin\Sneakers\IndexSneaker;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', Index::class);
 
 
 

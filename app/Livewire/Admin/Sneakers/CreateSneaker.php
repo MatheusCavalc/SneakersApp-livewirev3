@@ -43,7 +43,7 @@ class CreateSneaker extends Component
 
         Sneaker::create([
             'brand_id' => $this->brand_id,
-            'image' => $this->image->store('sneakers'),
+            'image' => $this->image->store('public/sneakers'),
             'name' => $this->name,
             'price' => $this->price,
             'promotion_price' => $this->promotion_price,

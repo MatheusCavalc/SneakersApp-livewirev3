@@ -38,7 +38,7 @@ class EditBrand extends Component
             Brand::findOrFail($this->brand->id)->update($this->all());
             return $this->redirect('/admin/brands');
         } else {
-            $this->logo = $this->logo->store('brands');
+            $this->logo = $this->logo->store('public/brands');
             Storage::delete($image);
             brand::findOrFail($this->brand->id)->update($this->all());
             return $this->redirect('/admin/brands');
