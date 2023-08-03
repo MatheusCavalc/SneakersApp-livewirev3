@@ -15,6 +15,49 @@ class Index extends Component
         return (int)$per;
     }
 
+    public function addToCart(Sneaker $sneaker, $quantity)
+    {
+        $cart = session()->get('cart');
+
+        if (!$cart) {
+            $price = $sneaker->in_promotion == true ? $sneaker->promotion_price : $sneaker->price;
+            $cart = [
+                $sneaker->id => [
+                    'id' => $sneaker->id,
+                    'name' => $sneaker->name,
+                    'image' => $sneaker->image,
+                    'quantity' => $quantity,
+                    'price' => $price,
+                    'total_price' => (float)$price * $quantity
+                ]
+            ];
+
+            session()->put('cart', $cart);
+
+            //$this->emit('updateCartCount');
+
+            //session()->flash('success','Product added to the cart successfully');
+        }
+
+        if (isset($cart)) {
+            $price = $sneaker->in_promotion == true ? $sneaker->promotion_price : $sneaker->price;
+            $cart[$sneaker->id] = [
+                'id' => $sneaker->id,
+                'name' => $sneaker->name,
+                'image' => $sneaker->image,
+                'quantity' => $quantity,
+                'price' => $price,
+                'total_price' => (float)$price * $quantity
+            ];
+
+            session()->put('cart', $cart);
+
+            //$this->emit('updateCartCount');
+
+            //session()->flash('success', 'Product added to the cart successfully');
+        }
+    }
+
     #[Layout('layouts.main')]
     #[Title('Home')]
     public function render()
