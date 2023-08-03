@@ -47,7 +47,7 @@
                                                             {{ $this->per($sneaker) }}% OFF
                                                         </span>
                                                     @endif
-                                                    <span
+                                                    <span wire:click='forget'
                                                         class="absolute top-0 right-0 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"

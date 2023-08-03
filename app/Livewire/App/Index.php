@@ -33,10 +33,6 @@ class Index extends Component
             ];
 
             session()->put('cart', $cart);
-
-            //$this->emit('updateCartCount');
-
-            //session()->flash('success','Product added to the cart successfully');
         }
 
         if (isset($cart)) {
@@ -51,11 +47,16 @@ class Index extends Component
             ];
 
             session()->put('cart', $cart);
-
-            //$this->emit('updateCartCount');
-
-            //session()->flash('success', 'Product added to the cart successfully');
         }
+
+        $this->dispatch('cart-updated');
+    }
+
+    public function forget()
+    {
+        session()->forget('cart');
+
+        $this->dispatch('cart-updated');
     }
 
     #[Layout('layouts.main')]
