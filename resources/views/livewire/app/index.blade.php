@@ -42,7 +42,7 @@
                                                     <img class="object-cover" src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
                                                     @if ($sneaker->in_promotion)
-                                                        <span
+                                                        <span wire:click='forget'
                                                             class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
                                                             {{ $this->per($sneaker) }}% OFF
                                                         </span>
