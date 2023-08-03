@@ -14,6 +14,7 @@ use App\Livewire\Admin\Sneakers\CreateSneaker;
 use App\Livewire\Admin\Sneakers\EditSneaker;
 use App\Livewire\Admin\Sneakers\IndexSneaker;
 use App\Livewire\App\Index;
+use App\Livewire\App\Wishlist;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ use App\Livewire\App\Index;
 */
 
 Route::get('/', Index::class);
+Route::get('/wishlist', Wishlist::class);
 
 
 

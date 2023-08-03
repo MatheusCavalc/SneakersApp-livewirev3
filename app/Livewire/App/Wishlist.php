@@ -3,20 +3,14 @@
 namespace App\Livewire\App;
 
 use App\Models\Sneaker;
-use App\Models\Wishlist;
+use App\Models\Wishlist as ModelsWishlist;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class Wishlist extends Component
 {
-    public function per($sneaker)
-    {
-        $per = (int)((((float)$sneaker->price - (float)$sneaker->promotion_price) / (float)$sneaker->price) * 100);
-        return $per;
-    }
-
     public function addToCart(Sneaker $sneaker, $quantity)
     {
         $cart = session()->get('cart');
@@ -54,40 +48,22 @@ class Index extends Component
         $this->dispatch('cart-updated');
     }
 
-    public function forget()
+    public function removeToWishlist($id)
     {
-        session()->forget('cart');
-
-        $this->dispatch('cart-updated');
-    }
-
-    public function addToWishlist($id)
-    {
-        $data = Wishlist::where('sneaker_id', $id)->where('wishlist_owner', Auth::user()->id)->exists();
-
-        if (Sneaker::find($id)) {
-            if (!$data) {
-                Wishlist::create([
-                    'wishlist_owner' => Auth::user()->id,
-                    'sneaker_id' => $id
-                ]);
-                $this->dispatch('cart-updated');
-            } else {
-                dd('oi');
-            }
-        } else {
-            $this->dispatch('cart-updated');
+        $sneaker = ModelsWishlist::where('sneaker_id', $id)->where('wishlist_owner', Auth::user()->id)->first();
+        if ($sneaker) {
+            $sneaker->delete();
         }
+
+        $this->dispatch('remove-sneaker')->self();
     }
 
     #[Layout('layouts.main')]
     #[Title('Home')]
     public function render()
     {
-        return view('livewire.app.index', [
-            'sneakersNike' => Sneaker::all(),
-            'sneakersAirJordan' => [],
-            'sneakersAdidas' => [],
+        return view('livewire.app.wishlist', [
+            'wishlist' => ModelsWishlist::where('wishlist_owner', '=', Auth::user()->id)->get(),
         ]);
     }
 }
