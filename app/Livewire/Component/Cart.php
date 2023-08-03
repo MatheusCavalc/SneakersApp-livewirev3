@@ -14,6 +14,9 @@ class Cart extends Component
 
         $cartItemsTotal = $cart == null ? 0 : array_sum(array_map(fn ($item) => $item['quantity'], $cart));
 
-        return view('livewire.component.cart', compact('cartItemsTotal'));
+        return view('livewire.component.cart', [
+            'cartItemsTotal' => $cartItemsTotal,
+            'cartBox' => json_decode(json_encode($cart), FALSE)
+        ]);
     }
 }
