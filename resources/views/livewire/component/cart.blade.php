@@ -20,60 +20,67 @@
         x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-95"
         class="absolute z-10 mt-3 mr-2 right-0 font-normal bg-white rounded-lg shadow" id="dropdown-user">
+        @if ($cartBox)
+            <table class="w-full text-sm text-left rounded-lg">
+                <thead class="text-xs text-white uppercase bg-black">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
 
-        <table class="w-full text-sm text-left rounded-lg">
-            <thead class="text-xs text-white uppercase bg-black">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Product name
-                    </th>
-                    <th scope="col" class="px-6 py-3 hidden md:inline-block">
-                        Price
-                    </th>
-                    <th scope="col" class="px-6 py-3 hidden md:inline-block">
-                        Quantity
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Total
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($cartBox as $cart)
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <th scope="row"
-                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            <div class="w-10 h-5">
-                                <img class="object-cover" src="{{ Storage::url($cart->image) }}"
-                                    alt="{{ $cart->name }}" />
-                            </div>
                         </th>
-                        <td class="px-6 py-4 text-center">
-                            {{ $cart->name }}
-                        </td>
-                        <td class="px-6 py-4 text-center hidden md:inline-block">
-                            R${{ $cart->price }}
-                        </td>
-                        <td class="px-6 py-4 text-center hidden md:inline-block">
-                            {{ $cart->quantity }}
-                        </td>
-                        <td class="px-6 py-4 text-center">
-                            R${{ (int) $cart->price * $cart->quantity }}
-                        </td>
+                        <th scope="col" class="px-6 py-3">
+                            Product name
+                        </th>
+                        <th scope="col" class="px-6 py-3 hidden md:inline-block">
+                            Price
+                        </th>
+                        <th scope="col" class="px-6 py-3 hidden md:inline-block">
+                            Quantity
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Total
+                        </th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($cartBox as $cart)
+                        <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <div class="w-10 h-5">
+                                    <img class="object-cover" src="{{ Storage::url($cart->image) }}"
+                                        alt="{{ $cart->name }}" />
+                                </div>
+                            </th>
+                            <td class="px-6 py-4 text-center">
+                                {{ $cart->name }}
+                            </td>
+                            <td class="px-6 py-4 text-center hidden md:inline-block">
+                                R${{ $cart->price }}
+                            </td>
+                            <td class="px-6 py-4 text-center hidden md:inline-block">
+                                {{ $cart->quantity }}
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                R${{ (int) $cart->price * $cart->quantity }}
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
-        <div class="text-right my-2 flex justify-end hover:underline">
-            <a class="cursor-pointer">Checkout</a>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-5 h-5 mr-2 mt-1 cursor-pointer">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-            </svg>
-        </div>
+            <div class="text-right my-2 flex justify-end hover:underline">
+                <a class="cursor-pointer">Checkout</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-5 h-5 mr-2 mt-1 cursor-pointer">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                </svg>
+            </div>
+        @else
+            <div class="w-40 h-10 md:w-80 md:h-20">
+                <h1 class="ml-5 my-4 md:mt-5 md:my-0">
+                    Cart empty
+                </h1>
+            </div>
+        @endif
     </div>
 </div>
