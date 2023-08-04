@@ -21,13 +21,17 @@
         <div class="mt-2">
             <div>
                 <div class="w-full bg-black py-5 px-5">
-                    <div class="flex">
+                    <div class="mx-5 flex md:justify-between">
                         <div>
-                            <h1 class="ml-5 text-2xl md:text-4xl text-white">Nike</h1>
+                            <h1 class="text-2xl md:text-4xl text-white">Nike</h1>
                         </div>
 
-                        <div class="ml-2 md:ml-5">
-                            <hr class="w-20 md:w-64 h-1 my-6 md:my-8 bg-white border-0 rounded">
+                        <div class="ml-2 md:ml-0">
+                            <hr class="w-20 md:w-[700px] h-1 my-6 md:my-8 bg-white border-0 rounded">
+                        </div>
+
+                        <div class="hidden md:block">
+                            <h1 class="text-2xl md:text-4xl text-white -scale-x-100 traced-white">Nike</h1>
                         </div>
                     </div>
 
@@ -118,13 +122,17 @@
 
             <div>
                 <div class="w-full bg-white py-5 px-5">
-                    <div class="flex">
+                    <div class="mx-5 flex md:justify-between">
                         <div>
-                            <h1 class="ml-5 text-2xl md:text-4xl text-black">Air Jordan</h1>
+                            <h1 class="text-2xl md:text-4xl text-black">Air Jordan</h1>
                         </div>
 
-                        <div class="ml-2 md:ml-5">
-                            <hr class="w-20 md:w-64 h-1 my-6 md:my-8 bg-black border-0 rounded">
+                        <div class="ml-2 md:ml-0">
+                            <hr class="w-20 md:w-[700px] h-1 my-6 md:my-8 bg-black border-0 rounded">
+                        </div>
+
+                        <div class="hidden md:block">
+                            <h1 class="text-2xl md:text-4xl text-white -scale-x-100 traced-black">Air Jordan</h1>
                         </div>
                     </div>
 
@@ -214,13 +222,17 @@
 
             <div>
                 <div class="w-full bg-black py-5 px-5">
-                    <div class="flex">
+                    <div class="mx-5 flex md:justify-between">
                         <div>
-                            <h1 class="ml-5 text-2xl md:text-4xl text-white">Adidas</h1>
+                            <h1 class="text-2xl md:text-4xl text-white">Adidas</h1>
                         </div>
 
-                        <div class="ml-2 md:ml-5">
-                            <hr class="w-20 md:w-64 h-1 my-6 md:my-8 bg-white border-0 rounded">
+                        <div class="ml-2 md:ml-0">
+                            <hr class="w-20 md:w-[700px] h-1 my-6 md:my-8 bg-white border-0 rounded">
+                        </div>
+
+                        <div class="hidden md:block">
+                            <h1 class="text-2xl md:text-4xl text-white -scale-x-100 traced-white">Adidas</h1>
                         </div>
                     </div>
 
