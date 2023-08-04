@@ -6,20 +6,20 @@
             this.open = false;
         }, 3000);
     }
-}" class="bg-white">
+}" class="bg-white mt-1">
     <div class="md:grid md:grid-cols-3">
-        <div class="ml-5 mt-5">
+        <div class="ml-5 pt-5">
             <h1 class="text-3xl">My Wishlist</h1>
         </div>
 
         <div class="md:col-span-2">
-            <div class="mt-10 md:grid md:grid-cols-3">
+            <div class="mt-10 md:grid md:grid-cols-3 md:gap-2">
                 @foreach ($wishlist as $sneaker)
                     <div
-                        class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+                        class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
                         <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                             href="/sneaker/{{ $sneaker->sneaker->id }}/slug" wire:navigate>
-                            <img class="object-cover" src="{{ Storage::url($sneaker->sneaker->image) }}"
+                            <img class="object-cover h-60 w-80" src="{{ Storage::url($sneaker->sneaker->image) }}"
                                 alt="{{ $sneaker->sneaker->name }}" />
                             @if ($sneaker->sneaker->in_promotion)
                                 <span

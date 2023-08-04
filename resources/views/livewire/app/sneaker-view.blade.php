@@ -42,8 +42,7 @@
                     </svg>
                 </button>
                 <img src="{{ Storage::url($sneaker->image) }}" alt="sneaker"
-                    class="block sm:rounded-xl xl:w-[70%] xl:rounded-xl mt-0 md:mx-auto md:mt-10 pointer-events-none transition duration-300 lg:w-3/4 lg:pointer-events-auto lg:cursor-pointer lg:hover:shadow-xl"
-                    id="hero" />
+                    class="block object-cover mx-2 h-56 w-full md:mx-0 md:h-96 md:w-[70%] sm:rounded-xl xl:w-[70%] xl:rounded-xl mt-0 md:mx-auto md:mt-10 pointer-events-none transition duration-300 lg:w-3/4 lg:pointer-events-auto lg:cursor-pointer lg:hover:shadow-xl" />
                 <button
                     class="bg-white w-10 h-10 flex items-center justify-center pl-1 rounded-full absolute right-6 z-10 sm:hidden"
                     id="next-mobile">
@@ -77,24 +76,25 @@
 
             @if ($sneaker->in_promotion)
                 <div class="mb-6">
-                    <div class="flex justify-end gap-4">
-                        <span class="inline-block h-fit py-0.5 px-2 font-bold bg-black text-white rounded-lg text-sm">
-                            {{ (int) ((((float) $sneaker->price - (float) $sneaker->promotion_price) / (float) $sneaker->price) * 100) }}%
-                            OFF
-                        </span>
-                        <h3 class="text-very-dark font-bold text-3xl inline-block">
-                            <p>${{ $sneaker->promotion_price }}</p>
-                        </h3>
-                    </div>
-                    <div class="flex justify-end">
-                        <p class="line-through">
+                    <div class="flex justify-start md:justify-end">
+                        <p class="line-through ml-1 md:mr-1">
                             ${{ $sneaker->price }}
                         </p>
                     </div>
+                    <div class="flex justify-start md:justify-end gap-4">
+                        <h3 class="md:order-2 text-very-dark font-bold text-3xl inline-block">
+                            <p>${{ $sneaker->promotion_price }}</p>
+                        </h3>
+                        <span
+                            class="md:order-1 inline-block h-fit py-0.5 px-2 mt-2 md:mt-2 font-bold bg-black text-white rounded-lg text-sm">
+                            {{ (int) ((((float) $sneaker->price - (float) $sneaker->promotion_price) / (float) $sneaker->price) * 100) }}%
+                            OFF
+                        </span>
+                    </div>
                 </div>
             @else
-                <div class="flex items-center justify-between mb-6 sm:flex-col sm:items-start">
-                    <div class="flex items-center gap-4">
+                <div class="mb-6">
+                    <div class="flex justify-start md:justify-end">
                         <h3 class="text-very-dark font-bold text-3xl inline-block">
                             <p>${{ $sneaker->price }}</p>
                         </h3>
@@ -106,9 +106,9 @@
                 <div class="">
                     <h1 class="text-2xl italic">Color</h1>
                     <div class="flex gap-3">
-                        <div class="w-20 h-15 border-2 border-black rounded-lg">
-                            <img class="object-cover p-1 rounded-lg" src="{{ Storage::url($sneaker->image) }}"
-                                alt="{{ $sneaker->name }}" />
+                        <div class="border-2 border-black rounded-lg">
+                            <img class="object-cover w-20 h-14 p-1 rounded-lg"
+                                src="{{ Storage::url($sneaker->image) }}" alt="{{ $sneaker->name }}" />
                         </div>
                         <h3 class="text-very-dark font-bold text-xl inline-block">
                             <p>{{ $sneaker->color }}</p>
@@ -191,10 +191,10 @@
             <div class="mt-2 md:flex md:justify-around">
                 {{-- @foreach ($sneaker as $sneaker) --}}
                 <div
-                    class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
+                    class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                     <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                         href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
-                        <img class="object-cover" src="{{ Storage::url($sneaker->image) }}"
+                        <img class="object-cover h-60 w-80" src="{{ Storage::url($sneaker->image) }}"
                             alt="{{ $sneaker->name }}" />
                         @if ($sneaker->in_promotion)
                             <span
@@ -264,10 +264,10 @@
             <div class="mt-2 md:flex md:justify-around">
                 {{-- @foreach ($sneaker as $sneaker) --}}
                 <div
-                    class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-black transition shadow-white duration-300 lg:hover:shadow-xl">
+                    class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-black transition shadow-white duration-300 lg:hover:shadow-xl">
                     <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                         href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
-                        <img class="object-cover" src="{{ Storage::url($sneaker->image) }}"
+                        <img class="object-cover h-60 w-80" src="{{ Storage::url($sneaker->image) }}"
                             alt="{{ $sneaker->name }}" />
                         @if ($sneaker->in_promotion)
                             <span
