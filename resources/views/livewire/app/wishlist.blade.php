@@ -17,23 +17,25 @@
                 @foreach ($wishlist as $sneaker)
                     <div
                         class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-                        <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+                        <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
+                            href="/sneaker/{{ $sneaker->sneaker->id }}/slug" wire:navigate>
                             <img class="object-cover" src="{{ Storage::url($sneaker->sneaker->image) }}"
                                 alt="{{ $sneaker->sneaker->name }}" />
                             @if ($sneaker->sneaker->in_promotion)
                                 <span
                                     class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
-                                    {{ (int)((((float)$sneaker->sneaker->price - (float)$sneaker->sneaker->promotion_price) / (float)$sneaker->sneaker->price) * 100) }}% OFF
+                                    {{ (int) ((((float) $sneaker->sneaker->price - (float) $sneaker->sneaker->promotion_price) / (float) $sneaker->sneaker->price) * 100) }}%
+                                    OFF
                                 </span>
                             @endif
-                            <span wire:click='removeToWishlist({{ $sneaker->sneaker->id }})'
-                                class="absolute top-0 right-0 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700 cursor-pointer">
+                            <a wire:click='removeToWishlist({{ $sneaker->sneaker->id }})'
+                                class="cursor-pointer absolute top-2 right-2 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m6 4.125l2.25 2.25m0 0l2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
                                 </svg>
-                            </span>
+                            </a>
                         </a>
                         <div class="mt-4 px-5 pb-5">
                             <a href="#">
