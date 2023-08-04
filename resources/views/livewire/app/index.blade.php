@@ -26,8 +26,8 @@
                             <h1 class="ml-5 text-2xl md:text-4xl text-white">Nike</h1>
                         </div>
 
-                        <div class="ml-5">
-                            <hr class="w-20 md:w-64 h-1 my-8 bg-white border-0 rounded">
+                        <div class="ml-2 md:ml-5">
+                            <hr class="w-20 md:w-64 h-1 my-6 md:my-8 bg-white border-0 rounded">
                         </div>
                     </div>
 
@@ -40,19 +40,21 @@
 
                                         @foreach ($sneakersNike as $sneaker)
                                             <div
-                                                class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+                                                class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                                                     href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
                                                     <img class="object-cover" src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
                                                     @if ($sneaker->in_promotion)
-                                                        <a wire:click='forget'
-                                                            class="cursor-pointer absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
-                                                            {{ $this->per($sneaker) }}% OFF
-                                                        </a>
+                                                        <span
+                                                            class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
+                                                            {{ (int) ((((float) $sneaker->price - (float) $sneaker->promotion_price) / (float) $sneaker->price) * 100) }}%
+                                                            OFF
+                                                        </span>
                                                     @endif
-                                                    <a wire:click='addToWishlist({{ $sneaker->id }})' x-on:click="showNotification('Sneaker add to wishlist')"
-                                                        class="cursor-pointer absolute top-0 right-0 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700">
+                                                    <a wire:click='addToWishlist({{ $sneaker->id }})'
+                                                        x-on:click="showNotification('Sneaker add to wishlist')"
+                                                        class="cursor-pointer absolute top-2 right-2 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">
@@ -121,8 +123,8 @@
                             <h1 class="ml-5 text-2xl md:text-4xl text-black">Air Jordan</h1>
                         </div>
 
-                        <div class="ml-5">
-                            <hr class="w-20 md:w-64 h-1 my-8 bg-black border-0 rounded">
+                        <div class="ml-2 md:ml-5">
+                            <hr class="w-20 md:w-64 h-1 my-6 md:my-8 bg-black border-0 rounded">
                         </div>
                     </div>
 
@@ -134,19 +136,21 @@
 
                                         @foreach ($sneakersAirJordan as $sneaker)
                                             <div
-                                                class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-black shadow-md">
+                                                class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-black transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                                                     href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
                                                     <img class="object-cover" src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
                                                     @if ($sneaker->in_promotion)
-                                                        <a wire:click='forget'
-                                                            class="cursor-pointer absolute top-0 left-0 m-2 rounded-full bg-white px-2 text-center text-sm font-medium text-black border border-black">
-                                                            {{ $this->per($sneaker) }}% OFF
-                                                        </a>
+                                                        <span
+                                                            class="absolute top-0 left-0 m-2 rounded-full bg-white px-2 text-center text-sm font-medium text-black border border-black">
+                                                            {{ (int) ((((float) $sneaker->price - (float) $sneaker->promotion_price) / (float) $sneaker->price) * 100) }}%
+                                                            OFF
+                                                        </span>
                                                     @endif
-                                                    <a wire:click='addToWishlist({{ $sneaker->id }})' x-on:click="showNotification('Sneaker add to wishlist')"
-                                                        class="cursor-pointer absolute top-0 right-0 m-2 rounded-full bg-white p-2 text-center text-sm font-medium text-black hover:bg-red-700 border border-black">
+                                                    <a wire:click='addToWishlist({{ $sneaker->id }})'
+                                                        x-on:click="showNotification('Sneaker add to wishlist')"
+                                                        class="cursor-pointer absolute top-2 right-2 m-2 rounded-full bg-white p-2 text-center text-sm font-medium text-black hover:bg-red-700 border border-black">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                                             class="w-6 h-6">
@@ -215,8 +219,8 @@
                             <h1 class="ml-5 text-2xl md:text-4xl text-white">Adidas</h1>
                         </div>
 
-                        <div class="ml-5">
-                            <hr class="w-20 md:w-64 h-1 my-8 bg-white border-0 rounded">
+                        <div class="ml-2 md:ml-5">
+                            <hr class="w-20 md:w-64 h-1 my-6 md:my-8 bg-white border-0 rounded">
                         </div>
                     </div>
 
@@ -229,22 +233,25 @@
 
                                         @foreach ($sneakersAdidas as $sneaker)
                                             <div
-                                                class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+                                                class="relative my-3 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                                                     href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
-                                                    <img class="object-cover" src="{{ Storage::url($sneaker->image) }}"
+                                                    <img class="object-cover"
+                                                        src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
                                                     @if ($sneaker->in_promotion)
-                                                        <a wire:click='forget'
-                                                            class="cursor-pointer absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
-                                                            {{ $this->per($sneaker) }}% OFF
-                                                        </a>
+                                                        <span
+                                                            class="absolute top-0 left-0 m-2 rounded-full bg-black px-2 text-center text-sm font-medium text-white">
+                                                            {{ (int) ((((float) $sneaker->price - (float) $sneaker->promotion_price) / (float) $sneaker->price) * 100) }}%
+                                                            OFF
+                                                        </span>
                                                     @endif
-                                                    <a wire:click='addToWishlist({{ $sneaker->id }})' x-on:click="showNotification('Sneaker add to wishlist')"
-                                                        class="cursor-pointer absolute top-0 right-0 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700">
+                                                    <a wire:click='addToWishlist({{ $sneaker->id }})'
+                                                        x-on:click="showNotification('Sneaker add to wishlist')"
+                                                        class="cursor-pointer absolute top-2 right-2 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                                                            class="w-6 h-6">
+                                                            viewBox="0 0 24 24" stroke-width="1.5"
+                                                            stroke="currentColor" class="w-6 h-6">
                                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                                 d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                                                         </svg>

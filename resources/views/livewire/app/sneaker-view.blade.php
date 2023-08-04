@@ -154,7 +154,8 @@
                 </div>
 
                 <div class="w-full my-3">
-                    <a wire:click='addToCart({{ $sneaker->id }}, 1)' x-on:click="showNotification('Sneaker add to cart')"
+                    <a wire:click='addToCart({{ $sneaker->id }}, 1)'
+                        x-on:click="showNotification('Sneaker add to cart')"
                         class="mb-3 cursor-pointer w-full h-10 bg-black py-2 flex items-center justify-center gap-4 text-xs text-white rounded-lg font-bold text-light shadow-md shadow-orange hover:brightness-125 transition select-none"
                         id="add-cart">
                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -165,7 +166,8 @@
                         Add to cart
                     </a>
 
-                    <a wire:click='addToWishlist({{ $sneaker->id }})' x-on:click="showNotification('Sneaker add to wishlist')"
+                    <a wire:click='addToWishlist({{ $sneaker->id }})'
+                        x-on:click="showNotification('Sneaker add to wishlist')"
                         class="w-full cursor-pointer h-10 bg-white py-2 flex items-center justify-center gap-4 text-xs text-black rounded-lg font-bold text-light shadow-md shadow-orange hover:brightness-125 transition select-none"
                         id="add-cart">
                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -201,14 +203,15 @@
                                 OFF
                             </span>
                         @endif
-                        <span wire:click='addToWishlist({{ $sneaker->id }})' x-on:click="showNotification('Sneaker add to wishlist')"
-                            class="absolute top-0 right-0 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700">
+                        <a wire:click='addToWishlist({{ $sneaker->id }})'
+                            x-on:click="showNotification('Sneaker add to wishlist')"
+                            class="cursor-pointer absolute top-2 right-2 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                             </svg>
-                        </span>
+                        </a>
                     </a>
                     <div class="mt-4 px-5 pb-5">
                         <a href="#">
@@ -237,7 +240,8 @@
                                     class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
                             </div>
                         </div>
-                        <a wire:click="addToCart({{ $sneaker->id }}, 1)" x-on:click="showNotification('Sneaker add to cart')"
+                        <a wire:click="addToCart({{ $sneaker->id }}, 1)"
+                            x-on:click="showNotification('Sneaker add to cart')"
                             class="flex items-center justify-center cursor-pointer rounded-md bg-black px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -254,7 +258,7 @@
 
     {{-- Complete your cart section  --}}
     <div class="bg-white py-4">
-        <h1 class="mt-2 ml-5 md:ml-16 text-xl md:text-4xl text-black">Complete Your Cart</h1>
+        <h1 class="mt-2 ml-5 md:ml-16 text-2xl md:text-4xl text-black">Complete Your Cart</h1>
 
         <div class="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
             <div class="mt-2 md:flex md:justify-around">
@@ -266,15 +270,15 @@
                         <img class="object-cover" src="{{ Storage::url($sneaker->image) }}"
                             alt="{{ $sneaker->name }}" />
                         @if ($sneaker->in_promotion)
-                            <a
-                                class="cursor-pointer absolute top-0 left-0 m-2 rounded-full bg-white px-2 text-center text-sm font-medium text-black border border-black">
+                            <span
+                                class="absolute top-0 left-0 m-2 rounded-full bg-white px-2 text-center text-sm font-medium text-black border border-black">
                                 {{ (int) ((((float) $sneaker->price - (float) $sneaker->promotion_price) / (float) $sneaker->price) * 100) }}%
                                 OFF
-                            </a>
+                            </span>
                         @endif
                         <a wire:click='addToWishlist({{ $sneaker->id }})'
                             x-on:click="showNotification('Sneaker add to wishlist')"
-                            class="cursor-pointer absolute top-0 right-0 m-2 rounded-full bg-white p-2 text-center text-sm font-medium text-black hover:bg-red-700 border border-black">
+                            class="cursor-pointer absolute top-2 right-2 m-2 rounded-full bg-white p-2 text-center text-sm font-medium text-black hover:bg-red-700 border border-black">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                 <path stroke-linecap="round" stroke-linejoin="round"

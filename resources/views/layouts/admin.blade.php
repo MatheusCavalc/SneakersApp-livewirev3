@@ -54,7 +54,7 @@
                                 </button>
                             </div>
                             <div x-show="open"
-                                class="absolute top-0 right-auto bottom-auto left-0 m-0 md:translate-x-[1160px] translate-x-[215px] translate-y-[45px] z-50 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+                                class="absolute z-10 mt-3 mr-2 top-11 right-1 font-normal bg-white rounded-lg shadow"
                                 id="dropdown-user">
                                 <div class="px-4 py-3" role="none">
                                     <p class="text-sm text-gray-900 dark:text-white" role="none">
