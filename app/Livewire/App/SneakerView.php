@@ -90,9 +90,6 @@ class SneakerView extends Component
                     'wishlist_owner' => Auth::user()->id,
                     'sneaker_id' => $id
                 ]);
-
-            } else {
-                return;
             }
         } else {
             return;

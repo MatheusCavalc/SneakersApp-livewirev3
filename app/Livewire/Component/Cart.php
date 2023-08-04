@@ -7,6 +7,18 @@ use Livewire\Attributes\On;
 
 class Cart extends Component
 {
+    public function removeItem($sneaker_id)
+    {
+        $cart = session()->get('cart');
+
+        if (isset($cart[$sneaker_id])) {
+            unset($cart[$sneaker_id]);
+            session()->put('cart', $cart);
+
+            $this->dispatch('cart-updated')->self();
+        }
+    }
+
     #[On('cart-updated')]
     public function render()
     {

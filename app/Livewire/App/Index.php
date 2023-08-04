@@ -71,12 +71,9 @@ class Index extends Component
                     'wishlist_owner' => Auth::user()->id,
                     'sneaker_id' => $id
                 ]);
-                $this->dispatch('cart-updated');
-            } else {
-                dd('oi');
             }
         } else {
-            $this->dispatch('cart-updated');
+            return;
         }
     }
 
