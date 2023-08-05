@@ -11,7 +11,7 @@
         }
     }" class="relative">
         <div class="mt-2">
-            MODAL AQUI
+            <livewire:component.carousel-home />
         </div>
 
         <div class="mt-2">

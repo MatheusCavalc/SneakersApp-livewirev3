@@ -205,7 +205,7 @@
                     </div>
                     <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase text-white">Resources
+                            <h2 class="mb-6 text-sm font-semibold uppercase text-white">Resources
                             </h2>
                             <ul class="text-white font-medium">
                                 <li class="mb-4">
@@ -226,7 +226,7 @@
                         <div>
                             <h2 class="mb-6 text-sm font-semibold uppercase text-white">Follow us
                             </h2>
-                            <ul class="text-gray-500 text-white font-medium">
+                            <ul class="text-white font-medium">
                                 <li class="mb-4">
                                     <a href="https://github.com/themesberg/flowbite"
                                         class="hover:underline ">Github</a>
@@ -238,7 +238,7 @@
                         </div>
                         <div>
                             <h2 class="mb-6 text-sm font-semibold 0 uppercase text-white">Legal</h2>
-                            <ul class="text-gray-500 text-white font-medium">
+                            <ul class="text-white font-medium">
                                 <li class="mb-4">
                                     <a href="#" class="hover:underline">Privacy Policy</a>
                                 </li>
