@@ -342,7 +342,7 @@
                     </div>
                 </div>
                 <div>
-                    <p class="text-2xl md:text-4xl text-black traced-black mx-3">Brands</p>
+                    <p class="text-2xl md:text-4xl text-black traced-black mx-2">Brands</p>
                 </div>
                 <div>
                     <div class="">

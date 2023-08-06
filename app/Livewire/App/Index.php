@@ -83,10 +83,10 @@ class Index extends Component
     public function render()
     {
         return view('livewire.app.index', [
-            'onSale' => Sneaker::where('in_promotion', true)->get(), //orderByRealeaseDate //take 6 or more
-            'sneakersNike' => Sneaker::where('brand_id', 1)->get(), //orderByRealeaseDate //take 3
+            'onSale' => Sneaker::where('in_promotion', true)->orderBy('id', 'desc')->take(3)->get(), //orderByRealeaseDate //take 6 or more
+            'sneakersNike' => Sneaker::where('brand_id', 1)->orderBy('id', 'desc')->take(3)->get(), //orderByRealeaseDate
             'sneakersAirJordan' => [], //orderByRealeaseDate //take 3
-            'sneakersAdidas' => Sneaker::where('brand_id', 2)->get(), //orderByRealeaseDate //take 3
+            'sneakersAdidas' => Sneaker::where('brand_id', 2)->orderBy('id', 'desc')->take(3)->get(), //orderByRealeaseDate //
             'allBrands' => Brand::all()
         ]);
     }

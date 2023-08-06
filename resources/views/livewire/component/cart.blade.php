@@ -1,4 +1,4 @@
-<div x-data="{ open: false }">
+<div x-data="{ open: false }" class="md:mr-6">
     <div class="mx-3 pr-2 md:mx-0 md:pr-0 cursor-pointer">
         <div class="flex justify-center items-center" x-on:click="open = !open">
             <div class="relative">

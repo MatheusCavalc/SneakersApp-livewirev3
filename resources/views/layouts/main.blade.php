@@ -40,7 +40,7 @@
                     </button>
 
                     <!-- Search Bar -->
-                    <div class="relative hidden md:block md:mr-6">
+                    <div class="relative hidden md:block md:mr-12">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -50,11 +50,13 @@
                             <span class="sr-only">Search icon</span>
                         </div>
                         <input type="text" id="search-navbar"
-                            class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-black focus:border-black"
                             placeholder="Search...">
                     </div>
 
                     <livewire:component.cart />
+
+                    <livewire:component.user-icon />
 
                     <!-- Menu Icon (only mobile) -->
                     <button x-on:click="open = !open" data-collapse-toggle="navbar-search" type="button"
@@ -95,7 +97,7 @@
 
                             <!-- Menu with dropdowns -->
                             <li>
-                                <button x-on:mouseover="open = true" x-on:mouseleave="open = false"
+                                <button x-on:click="open = !open" x-on:mouseover="open = true" x-on:mouseleave="open = false"
                                     id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
                                     class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Sneakers
                                     <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true"
@@ -111,19 +113,19 @@
                                     x-transition:leave="transition ease-in duration-75"
                                     x-transition:leave-start="opacity-100 scale-100"
                                     x-transition:leave-end="opacity-0 scale-95"
-                                    class="absolute z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                    class="absolute z-10 font-normal bg-black divide-y divide-gray-100 rounded-lg shadow w-80 md:w-44 dark:bg-gray-700 dark:divide-gray-600">
 
-                                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
+                                    <ul class="py-2 text-sm text-white dark:text-gray-400"
                                         aria-labelledby="dropdownLargeButton">
                                         <li>
                                             <a href="#"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                                class="block px-4 py-2 hover:bg-white hover:text-black dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
                                         </li>
                                         <li aria-labelledby="dropdownNavbarLink">
                                             <button id="doubleDropdownButton" x-on:click="open2 = !open2"
                                                 data-dropdown-toggle="doubleDropdown"
                                                 data-dropdown-placement="right-start" type="button"
-                                                class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg
+                                                class="flex items-center justify-between w-full px-4 py-2 hover:bg-white hover:text-black dark:hover:bg-gray-600 dark:hover:text-white">Dropdown<svg
                                                     class="w-2.5 h-2.5 ml-2.5" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" fill="none"
                                                     viewBox="0 0 10 6">
@@ -137,7 +139,7 @@
                                                 x-transition:leave="transition ease-in duration-75"
                                                 x-transition:leave-start="opacity-100 scale-100"
                                                 x-transition:leave-end="opacity-0 scale-95"
-                                                class="absolute ml-44 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                                class="absolute md:ml-44 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-80 md:w-44 dark:bg-gray-700">
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                                     aria-labelledby="doubleDropdownButton">
                                                     <li>
@@ -162,12 +164,12 @@
                                         </li>
                                         <li>
                                             <a href="#"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                                class="block px-4 py-2 hover:bg-white hover:text-black dark:hover:white dark:hover:text-white">Earnings</a>
                                         </li>
                                     </ul>
                                     <div class="py-1">
                                         <a href="#"
-                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign
+                                            class="block px-4 py-2 text-sm text-white hover:bg-white hover:text-black dark:hover:white dark:text-gray-400 dark:hover:text-white">Sign
                                             out</a>
                                     </div>
                                 </div>
