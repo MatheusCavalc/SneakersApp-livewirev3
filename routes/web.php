@@ -13,6 +13,7 @@ use App\Livewire\Admin\IndexAdmin;
 use App\Livewire\Admin\Sneakers\CreateSneaker;
 use App\Livewire\Admin\Sneakers\EditSneaker;
 use App\Livewire\Admin\Sneakers\IndexSneaker;
+use App\Livewire\App\BrandView;
 use App\Livewire\App\Index;
 use App\Livewire\App\SneakerView;
 use App\Livewire\App\Wishlist;
@@ -30,7 +31,10 @@ use App\Livewire\App\Wishlist;
 
 Route::get('/', Index::class);
 Route::get('/sneaker/{id}/slug', SneakerView::class);
-Route::get('/wishlist', Wishlist::class);
+Route::get('/brands/{id}/slug', BrandView::class);
+
+
+Route::get('/wishlist', Wishlist::class)->middleware(['auth', 'verified']);
 
 
 

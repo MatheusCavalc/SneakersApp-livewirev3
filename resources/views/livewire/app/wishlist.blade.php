@@ -15,7 +15,7 @@
         <div class="md:col-span-2">
             <div class="mt-10 md:grid md:grid-cols-3 md:gap-2">
                 @foreach ($wishlist as $sneaker)
-                    <div
+                    <div wire:key="{{ $sneaker->id }}"
                         class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
                         <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                             href="/sneaker/{{ $sneaker->sneaker->id }}/slug" wire:navigate>
@@ -28,8 +28,8 @@
                                     OFF
                                 </span>
                             @endif
-                            <a wire:click='removeToWishlist({{ $sneaker->sneaker->id }})'
-                                class="cursor-pointer absolute top-2 right-2 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700 cursor-pointer">
+                            <a wire:click='removeToWishlist({{ $sneaker->id }})'
+                                class="cursor-pointer absolute top-2 right-2 m-2 rounded-full bg-black p-2 text-center text-sm font-medium text-white hover:bg-red-700">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"

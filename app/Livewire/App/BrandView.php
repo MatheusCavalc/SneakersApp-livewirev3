@@ -10,12 +10,13 @@ use Livewire\Attributes\Layout;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class Index extends Component
+class BrandView extends Component
 {
-    public function per($sneaker)
+    public Brand $brand;
+
+    public function mount($id)
     {
-        $per = (int)((((float)$sneaker->price - (float)$sneaker->promotion_price) / (float)$sneaker->price) * 100);
-        return $per;
+        $this->brand = Brand::findOrFail($id);
     }
 
     public function addToCart(Sneaker $sneaker, $quantity)
@@ -55,13 +56,6 @@ class Index extends Component
         $this->dispatch('cart-updated');
     }
 
-    public function forget()
-    {
-        session()->forget('cart');
-
-        $this->dispatch('cart-updated');
-    }
-
     public function addToWishlist($id)
     {
         $data = Wishlist::where('sneaker_id', $id)->where('wishlist_owner', Auth::user()->id)->exists();
@@ -82,12 +76,6 @@ class Index extends Component
     #[Title('Home')]
     public function render()
     {
-        return view('livewire.app.index', [
-            'onSale' => Sneaker::where('in_promotion', true)->get(), //orderByRealeaseDate //take 6 or more
-            'sneakersNike' => Sneaker::where('brand_id', 1)->get(), //orderByRealeaseDate //take 3
-            'sneakersAirJordan' => [], //orderByRealeaseDate //take 3
-            'sneakersAdidas' => Sneaker::where('brand_id', 2)->get(), //orderByRealeaseDate //take 3
-            'allBrands' => Brand::all()
-        ]);
+        return view('livewire.app.brand-view');
     }
 }

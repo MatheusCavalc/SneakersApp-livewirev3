@@ -10,15 +10,21 @@
             }, 3000);
         }
     }" class="relative">
+
+        {{-- Carousel Home --}}
         <div class="mt-2">
             <livewire:component.carousel-home />
         </div>
 
+        {{-- Last Promotions --}}
         <div class="mt-2">
             In Promotion aqui
         </div>
 
+        {{-- Top Brands --}}
         <div class="mt-2">
+
+            {{-- Nike --}}
             <div>
                 <div class="w-full bg-black py-5 px-5">
                     <div class="mx-5 flex md:justify-between">
@@ -39,7 +45,7 @@
                         <div>
                             <div class="bg-black">
                                 <div class="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
-                                    <div class="mt-2 md:flex md:justify-around">
+                                    <div class="mt-2 md:flex md:justify-evenly">
 
 
                                         @foreach ($sneakersNike as $sneaker)
@@ -47,7 +53,8 @@
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                                                     href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
-                                                    <img class="object-cover h-60 w-80" src="{{ Storage::url($sneaker->image) }}"
+                                                    <img class="object-cover h-60 w-80"
+                                                        src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
                                                     @if ($sneaker->in_promotion)
                                                         <span
@@ -120,6 +127,7 @@
                 </div>
             </div>
 
+            {{-- Air Jordan --}}
             <div>
                 <div class="w-full bg-white py-5 px-5">
                     <div class="mx-5 flex md:justify-between">
@@ -140,14 +148,15 @@
                         <div>
                             <div class="bg-white">
                                 <div class="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
-                                    <div class="mt-2 md:flex md:justify-around">
+                                    <div class="mt-2 md:flex md:justify-evenly">
 
                                         @foreach ($sneakersAirJordan as $sneaker)
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-black transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
                                                     href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
-                                                    <img class="object-cover h-60 w-80" src="{{ Storage::url($sneaker->image) }}"
+                                                    <img class="object-cover h-60 w-80"
+                                                        src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
                                                     @if ($sneaker->in_promotion)
                                                         <span
@@ -220,6 +229,7 @@
                 </div>
             </div>
 
+            {{-- Adidas --}}
             <div>
                 <div class="w-full bg-black py-5 px-5">
                     <div class="mx-5 flex md:justify-between">
@@ -240,7 +250,7 @@
                         <div>
                             <div class="bg-black">
                                 <div class="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
-                                    <div class="mt-2 md:flex md:justify-around">
+                                    <div class="mt-2 md:flex md:justify-evenly">
 
 
                                         @foreach ($sneakersAdidas as $sneaker)
@@ -319,6 +329,40 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Brands --}}
+        <div class="mt-2">
+            <div class="flex justify-center bg-white py-5 px-5">
+                <div>
+                    <div class="">
+                        <hr class="w-20 md:w-[400px] h-1 my-6 md:my-8 bg-black border-0 rounded">
+                    </div>
+                </div>
+                <div>
+                    <p class="text-2xl md:text-4xl text-black traced-black mx-3">Brands</p>
+                </div>
+                <div>
+                    <div class="">
+                        <hr class="w-20 md:w-[400px] h-1 my-6 md:my-8 bg-black border-0 rounded">
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center bg-white">
+                <div class="grid grid-cols-3 md:flex gap-4 my-7 mx-5">
+                    @foreach ($allBrands as $brand)
+                        <a href="/brands/{{ $brand->id }}/slug" wire:navigate class="hover:italic">
+                            <div>
+                                <img class="object-cover h-20 w-20 md:h-24 md:w-24 rounded-full border-2 border-black p-1 hover:border-white hover:bg-black"
+                                    src="{{ Storage::url($brand->logo) }}" alt="{{ $brand->name }}" />
+                            </div>
+                            <div>
+                                <p class="text-center">{{ $brand->name }}</p>
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>

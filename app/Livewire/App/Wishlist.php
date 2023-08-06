@@ -48,12 +48,9 @@ class Wishlist extends Component
         $this->dispatch('cart-updated');
     }
 
-    public function removeToWishlist($id)
+    public function removeToWishlist(ModelsWishlist $wishlist)
     {
-        $sneaker = ModelsWishlist::where('sneaker_id', $id)->where('wishlist_owner', Auth::user()->id)->first();
-        if ($sneaker) {
-            $sneaker->delete();
-        }
+        $wishlist->delete();
 
         $this->dispatch('remove-sneaker')->self();
     }

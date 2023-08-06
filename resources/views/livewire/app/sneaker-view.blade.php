@@ -42,7 +42,7 @@
                     </svg>
                 </button>
                 <img src="{{ Storage::url($sneaker->image) }}" alt="sneaker"
-                    class="block object-cover mx-2 h-56 w-full md:mx-0 md:h-96 md:w-[70%] sm:rounded-xl xl:w-[70%] xl:rounded-xl mt-0 md:mx-auto md:mt-10 pointer-events-none transition duration-300 lg:w-3/4 lg:pointer-events-auto lg:cursor-pointer lg:hover:shadow-xl" />
+                    class="block object-cover mx-2 h-56 w-full md:h-96 md:w-[70%] sm:rounded-xl xl:w-[70%] xl:rounded-xl mt-0 md:mx-auto md:mt-10 pointer-events-none transition duration-300 lg:w-3/4 lg:pointer-events-auto lg:cursor-pointer lg:hover:shadow-xl" />
                 <button
                     class="bg-white w-10 h-10 flex items-center justify-center pl-1 rounded-full absolute right-6 z-10 sm:hidden"
                     id="next-mobile">

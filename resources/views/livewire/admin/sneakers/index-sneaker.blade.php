@@ -35,7 +35,7 @@
             </thead>
             <tbody>
                 @foreach ($sneakers as $sneaker)
-                    <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                    <tr wire:key="{{ $sneaker->id }}" class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {{ $sneaker->name }}
