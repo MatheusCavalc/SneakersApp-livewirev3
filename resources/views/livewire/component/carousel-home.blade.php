@@ -1,5 +1,5 @@
 <div>
-    <div class="relative mb-52 mx-3 md:mx-10 md:px-24" x-data="{
+    <div class="relative bg-black" x-data="{
         currentSlide: 1,
         timeDuration: 15000,
 
@@ -74,7 +74,7 @@
         </div>
 
         {{-- Button Prev Slide --}}
-        <div class="invisible md:visible absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 group focus:outline-none">
+        <div class="invisible md:visible absolute top-0 left-0 z-0 flex items-center justify-center h-full px-4 group focus:outline-none">
             <button x-on:click="prevSlide()" class="cursor-pointer rounded-full bg-black hover:bg-white">
                 <span
                     class="inline-flex items-center justify-center w-10 h-9 group-focus:ring-4 group-focus:ring-white">
@@ -86,7 +86,7 @@
         </div>
 
         {{-- Button Next Slide --}}
-        <div class="invisible md:visible absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 group focus:outline-none">
+        <div class="invisible md:visible absolute top-0 right-0 z-0 flex items-center justify-center h-full px-4 group focus:outline-none">
             <button x-on:click="nextSlide()" class="cursor-pointer rounded-full bg-black hover:bg-white">
                 <span
                     class="inline-flex items-center justify-center w-10 h-9 group-focus:ring-4 group-focus:ring-white">

@@ -19,7 +19,7 @@
         x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
         x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-95"
-        class="absolute z-10 mt-3 mr-2 right-0 font-normal bg-white rounded-lg shadow" id="dropdown-user">
+        class="absolute z-50 mt-3 mr-2 right-0 font-normal bg-white rounded-lg shadow" id="dropdown-user">
         @if ($cartBox)
             <table class="w-full text-sm text-left rounded-lg">
                 <thead class="text-xs text-white uppercase bg-black">
