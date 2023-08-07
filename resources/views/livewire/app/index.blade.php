@@ -19,7 +19,7 @@
         {{-- Last Promotions --}}
         <div class="">
             <div>
-                <div class="w-full bg-white pb-6 md:pb-3 md:pt-10 pt-5">
+                <div class="w-full bg-white pb-6 md:pb-3 md:pt-20 pt-5">
 
                     {{-- Trendings --}}
                     <div class="flex justify-center bg-white py-5 px-5">
@@ -171,12 +171,18 @@
             </div>
         </div>
 
+        {{--
+            <div>
+            Collections
+            </div>
+        --}}
+
         {{-- Top Brands --}}
         <div class="">
 
             {{-- Nike --}}
             <div>
-                <div class="w-full bg-black py-5 px-5">
+                <div class="w-full bg-black md:pt-20 pt-5 px-5">
                     <div class="mx-5 flex md:justify-between">
                         <div>
                             <h1 class="text-2xl md:text-4xl text-white">Nike</h1>
@@ -279,7 +285,7 @@
 
             {{-- Air Jordan --}}
             <div>
-                <div class="w-full bg-white py-5 px-5">
+                <div class="w-full bg-white md:pt-20 pt-5 px-5">
                     <div class="mx-5 flex md:justify-between">
                         <div>
                             <h1 class="text-2xl md:text-4xl text-black">Air Jordan</h1>
@@ -381,7 +387,7 @@
 
             {{-- Adidas --}}
             <div>
-                <div class="w-full bg-black py-5 px-5">
+                <div class="w-full bg-black md:pt-20 pt-5 px-5">
                     <div class="mx-5 flex md:justify-between">
                         <div>
                             <h1 class="text-2xl md:text-4xl text-white">Adidas</h1>
@@ -485,7 +491,7 @@
 
         {{-- Brands --}}
         <div class="">
-            <div class="flex justify-center bg-white py-5 px-5">
+            <div class="flex justify-center bg-white md:pt-20 pt-5 px-5">
                 <div>
                     <div class="">
                         <hr class="w-20 md:w-[400px] h-1 my-6 md:my-8 bg-black border-0 rounded">

@@ -1,5 +1,5 @@
 <div>
-    <div class="relative bg-black" x-data="{
+    <div class="relative bg-white pt-10" x-data="{
         currentSlide: 1,
         timeDuration: 15000,
 
