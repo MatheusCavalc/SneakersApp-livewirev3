@@ -15,7 +15,7 @@ class Cart extends Component
             unset($cart[$sneaker_id]);
             session()->put('cart', $cart);
 
-            $this->dispatch('cart-updated')->self();
+            $this->dispatch('cart-updated');
         }
     }
 

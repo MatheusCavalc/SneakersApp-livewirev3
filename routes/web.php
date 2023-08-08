@@ -14,6 +14,7 @@ use App\Livewire\Admin\Sneakers\CreateSneaker;
 use App\Livewire\Admin\Sneakers\EditSneaker;
 use App\Livewire\Admin\Sneakers\IndexSneaker;
 use App\Livewire\App\BrandView;
+use App\Livewire\App\CheckoutView;
 use App\Livewire\App\Index;
 use App\Livewire\App\SearchView;
 use App\Livewire\App\SneakerView;
@@ -39,6 +40,7 @@ Route::get('/search/sneaker/{search}', SearchView::class);
 
 Route::get('/wishlist', Wishlist::class)->middleware(['auth', 'verified']);
 
+Route::get('/checkout', CheckoutView::class);
 
 
 
