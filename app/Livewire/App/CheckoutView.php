@@ -2,6 +2,7 @@
 
 namespace App\Livewire\App;
 
+use App\Enums\PaymentStatus;
 use App\Models\Order;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\On;
@@ -27,6 +28,9 @@ class CheckoutView extends Component
     public $zipcode = '';
 
     #[Rule('required')]
+    public $status_payment = '';
+
+    #[Rule('required')]
     public $created_by = '';
 
     #[Rule('required')]
@@ -42,11 +46,19 @@ class CheckoutView extends Component
 
         $this->total_price = $cart == null ? 0 : array_sum(array_map(fn ($item) => $item['total_price'], $cart));
 
+        $this->status_payment = PaymentStatus::Pending;
+
         $this->validate();
 
         $order = Order::create($this->all());
 
-        dd($order);
+        if ($order) {
+            session()->forget('cart');
+
+            $this->dispatch('cart-updated');
+        }
+
+        //dd($order);
 
         //CHECKOUT (PAYMENT)
     }
@@ -71,8 +83,6 @@ class CheckoutView extends Component
         $cart = session()->get('cart');
 
         $total_value = $cart == null ? 0 : array_sum(array_map(fn ($item) => $item['total_price'], $cart));
-
-        //dd($cart, $total_value);
 
         return view('livewire.app.checkout-view', [
             'cartBox' => json_decode(json_encode($cart), FALSE),

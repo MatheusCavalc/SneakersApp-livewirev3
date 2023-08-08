@@ -1,4 +1,4 @@
-<div>
+<div class="bg-white">
 
     {{-- Page Name --}}
     <div class="pl-3 md:pl-10 py-4 flex gap-4 bg-black text-white text-sm md:text-base">
@@ -19,40 +19,41 @@
         <p>Payment</p>
     </div>
 
-    <div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32 bg-white py-3">
+    @if ($cartBox)
+        <div class="grid sm:px-10 lg:grid-cols-2 lg:px-20 xl:px-32 bg-white py-3">
 
-        <div class="px-4 pt-8 bg-white">
-            <p class="text-xl font-medium">Order Summary</p>
-            <p class="text-gray-400">Check your items. And select a suitable shipping method.</p>
+            <div class="px-4 pt-8 bg-white">
+                <p class="text-xl font-medium">Order Summary</p>
+                <p class="text-gray-400">Check your items. And select a suitable shipping method.</p>
 
-            {{-- Products on cart --}}
-            <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
+                {{-- Products on cart --}}
+                <div class="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
 
-                @foreach ($cartBox as $sneaker)
-                    <div wire:key="{{ $sneaker->id }}" class="flex flex-row rounded-lg bg-white">
-                        <img class="m-2 h-24 w-24 rounded-md border object-cover object-center"
-                            src="{{ Storage::url($sneaker->image) }}" alt="" />
-                        <div class="flex w-full flex-col px-4 py-4">
-                            <span class="font-semibold">{{ $sneaker->name }}</span>
-                            <span class="float-right text-gray-400">{{ $sneaker->quantity }}</span>
-                            {{-- Size --}}
-                            <p class="text-lg font-bold">
-                                {{ $sneaker->quantity }} x {{ $sneaker->price }} = ${{ $sneaker->total_price }}
-                            </p>
+                    @foreach ($cartBox as $sneaker)
+                        <div wire:key="{{ $sneaker->id }}" class="flex flex-row rounded-lg bg-white">
+                            <img class="m-2 h-24 w-24 rounded-md border object-cover object-center"
+                                src="{{ Storage::url($sneaker->image) }}" alt="" />
+                            <div class="flex w-full flex-col px-4 py-4">
+                                <span class="font-semibold">{{ $sneaker->name }}</span>
+                                <span class="float-right text-gray-400">{{ $sneaker->quantity }}</span>
+                                {{-- Size --}}
+                                <p class="text-lg font-bold">
+                                    {{ $sneaker->quantity }} x {{ $sneaker->price }} = ${{ $sneaker->total_price }}
+                                </p>
+                            </div>
+
+                            <div wire:click='removeItem({{ $sneaker->id }})' class="cursor-pointer w-6 h-6">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </div>
                         </div>
+                    @endforeach
 
-                        <div wire:click='removeItem({{ $sneaker->id }})' class="cursor-pointer w-6 h-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </div>
-                    </div>
-                @endforeach
+                </div>
 
-            </div>
-
-            {{-- Shipping options
+                {{-- Shipping options
             <p class="mt-8 text-lg font-medium">Shipping Methods</p>
             <form class="mt-5 grid gap-6">
                 <div class="relative">
@@ -85,30 +86,30 @@
                 </div>
             </form>
             --}}
-        </div>
+            </div>
 
 
-        <div class="mt-10 bg-black px-4 pt-8 lg:mt-0">
-            <form wire:submit="placeOrder">
-                <p class="text-xl text-white font-medium">Payment Details</p>
-                <p class="text-white">Complete your order by providing your payment details.</p>
+            <div class="mt-10 bg-black px-4 pt-8 lg:mt-0">
+                <form wire:submit="placeOrder">
+                    <p class="text-xl text-white font-medium">Payment Details</p>
+                    <p class="text-white">Complete your order by providing your payment details.</p>
 
-                {{-- Email --}}
-                <div class="">
-                    <label for="email" class="mt-4 mb-2 block text-sm text-white font-medium">Email</label>
-                    <div class="relative">
-                        <input type="text" id="email" name="email" wire:model='email' required
-                            class="w-full rounded-md border border-gray-200 px-4 py-3 pl-5 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                            placeholder="your.email@gmail.com" />
+                    {{-- Email --}}
+                    <div class="">
+                        <label for="email" class="mt-4 mb-2 block text-sm text-white font-medium">Email</label>
+                        <div class="relative">
+                            <input type="text" id="email" name="email" wire:model='email' required
+                                class="w-full rounded-md border border-gray-200 px-4 py-3 pl-5 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                placeholder="your.email@gmail.com" />
+                        </div>
+                        <div class="text-red-500">
+                            @error('email')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
+                        </div>
                     </div>
-                    <div class="text-red-500">
-                        @error('email')
-                            <span class="error">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
 
-                {{-- Card Holder
+                    {{-- Card Holder
                 <label for="card-holder" class="mt-4 mb-2 block text-sm text-white font-medium">Card Holder</label>
                 <div class="relative">
                     <input type="text" id="card-holder" name="card-holder"
@@ -124,7 +125,7 @@
                 </div>
                 --}}
 
-                {{-- Card Details
+                    {{-- Card Details
                 <label for="card-no" class="mt-4 mb-2 block text-sm text-white font-medium">Card Details</label>
                 <div class="flex">
                     <div class="relative w-7/12 flex-shrink-0">
@@ -149,87 +150,95 @@
                         placeholder="CVC" />
                 </div> --}}
 
-                {{-- Address --}}
-                <div class="">
-                    <label for="billing-address" class="mt-4 mb-2 block text-sm text-white font-medium">Billing
-                        Address</label>
-                    <div class="sm:w-full">
+                    {{-- Address --}}
+                    <div class="">
+                        <label for="billing-address" class="mt-4 mb-2 block text-sm text-white font-medium">Billing
+                            Address</label>
+                        <div class="sm:w-full">
+                            <div>
+                                <input type="text" id="billing-address" name="billing-address" wire:model='address1'
+                                    required
+                                    class="w-full rounded-md border border-gray-200 px-4 py-3 pl-5 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Street Address" />
+                            </div>
+
+                            <div class="text-red-500">
+                                @error('address1')
+                                    <span class="error">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- State --}}
+                    <div>
+                        <label for="billing-address" class="mt-4 mb-2 block text-sm text-white font-medium">
+                            State
+                        </label>
                         <div>
-                            <input type="text" id="billing-address" name="billing-address" wire:model='address1'
-                                required
-                                class="w-full rounded-md border border-gray-200 px-4 py-3 pl-5 text-sm shadow-sm outline-none focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                placeholder="Street Address" />
+                            <div>
+                                <input type="text" name="billing-zip" wire:model='state' required
+                                    class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 pl-5 text-sm shadow-sm outline-none w-full focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="State" />
+                            </div>
                         </div>
 
                         <div class="text-red-500">
-                            @error('address1')
+                            @error('state')
                                 <span class="error">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-                </div>
 
-                {{-- State --}}
-                <div>
-                    <label for="billing-address" class="mt-4 mb-2 block text-sm text-white font-medium">
-                        State
-                    </label>
+                    {{-- Zipcode --}}
                     <div>
+                        <label for="billing-address" class="mt-4 mb-2 block text-sm text-white font-medium">
+                            Zipcode
+                        </label>
                         <div>
-                            <input type="text" name="billing-zip" wire:model='state' required
-                                class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 pl-5 text-sm shadow-sm outline-none w-full focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                placeholder="State" />
+                            <div>
+                                <input type="text" name="billing-zip" wire:model='zipcode' required
+                                    class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 pl-5 text-sm shadow-sm outline-none w-full focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="ZIP" />
+                            </div>
+                        </div>
+
+                        <div class="text-red-500">
+                            @error('zipcode')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
-                    <div class="text-red-500">
-                        @error('state')
-                            <span class="error">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-
-                {{-- Zipcode --}}
-                <div>
-                    <label for="billing-address" class="mt-4 mb-2 block text-sm text-white font-medium">
-                        Zipcode
-                    </label>
-                    <div>
-                        <div>
-                            <input type="text" name="billing-zip" wire:model='zipcode' required
-                                class="flex-shrink-0 rounded-md border border-gray-200 px-4 py-3 pl-5 text-sm shadow-sm outline-none w-full focus:z-10 focus:border-blue-500 focus:ring-blue-500"
-                                placeholder="ZIP" />
+                    <!-- Total -->
+                    <div class="mt-6 border-t border-b py-2">
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-medium text-white">Subtotal</p>
+                            <p class="font-semibold text-white">${{ $total_value }}</p>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-sm font-medium text-white">Shipping</p>
+                            <p class="font-semibold text-white">$0.00</p>
                         </div>
                     </div>
-
-                    <div class="text-red-500">
-                        @error('zipcode')
-                            <span class="error">{{ $message }}</span>
-                        @enderror
+                    <div class="mt-6 flex items-center justify-between">
+                        <p class="text-sm font-medium text-white">Total</p>
+                        <p class="text-2xl font-semibold text-white">${{ $total_value }}</p>
                     </div>
-                </div>
-
-                <!-- Total -->
-                <div class="mt-6 border-t border-b py-2">
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm font-medium text-white">Subtotal</p>
-                        <p class="font-semibold text-white">${{ $total_value }}</p>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <p class="text-sm font-medium text-white">Shipping</p>
-                        <p class="font-semibold text-white">$0.00</p>
-                    </div>
-                </div>
-                <div class="mt-6 flex items-center justify-between">
-                    <p class="text-sm font-medium text-white">Total</p>
-                    <p class="text-2xl font-semibold text-white">${{ $total_value }}</p>
-                </div>
-                <button type="submit"
-                    class="mt-4 mb-8 w-full rounded-md bg-white px-6 py-3 font-medium text-black">Place
-                    Order</button>
-            </form>
+                    <button type="submit"
+                        class="mt-4 mb-8 w-full rounded-md bg-white px-6 py-3 font-medium text-black">Place
+                        Order</button>
+                </form>
+            </div>
         </div>
-    </div>
+    @else
+        <div class="bg-white ml-10 pb-20">
+            <p class="text-very-dark mb-4 font-bold text-3xl lg:text-4xl ml-10 mt-10">
+                Cart empty
+            </p>
+        </div>
+    @endif
+
 </div>
 
 </div>

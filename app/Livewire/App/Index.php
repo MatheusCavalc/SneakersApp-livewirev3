@@ -55,13 +55,6 @@ class Index extends Component
         $this->dispatch('cart-updated');
     }
 
-    public function forget()
-    {
-        session()->forget('cart');
-
-        $this->dispatch('cart-updated');
-    }
-
     public function addToWishlist($id)
     {
         $data = Wishlist::where('sneaker_id', $id)->where('wishlist_owner', Auth::user()->id)->exists();
