@@ -30,9 +30,9 @@
                     </div>
                     <ul class="py-1" role="none">
                         <li>
-                            <a href="#"
+                            <a href="/my-orders" wire:navigate
                                 class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                                role="menuitem">Profile</a>
+                                role="menuitem">My Orders</a>
                         </li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}" class="cursor-pointer">

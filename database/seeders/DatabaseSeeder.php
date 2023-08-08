@@ -14,6 +14,38 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+        $nike = \App\Models\Brand::create([
+            'logo' => 'public/brands/nike.png',
+            'name' => 'Nike',
+        ]);
+
+        $adidas = \App\Models\Brand::create([
+            'logo' => 'public/brands/adidas.png',
+            'name' => 'Adidas',
+        ]);
+
+        $dunklow = \App\Models\Sneaker::create([
+            'brand_id' => 1,
+            'image' => 'public/sneakers/dunklow.webp',
+            'name' => 'Dunk Low Coast',
+            'price' => '899',
+            'promotion_price' => '799',
+            'in_promotion' => true,
+            'color' => 'White + Blue',
+            'sizes' => ["38","39"],
+        ]);
+
+        $airforce = \App\Models\Sneaker::create([
+            'brand_id' => 1,
+            'image' => 'public/sneakers/airforce.webp',
+            'name' => 'Air Force 1 07 Masculino',
+            'price' => '799',
+            'promotion_price' => '',
+            'in_promotion' => false,
+            'color' => 'Black + White',
+            'sizes' => ["38","39"],
+        ]);
+
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
