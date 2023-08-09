@@ -17,7 +17,7 @@ class EditSneaker extends Component
 
     public Sneaker $sneaker;
 
-    #[Rule('required')]
+    #[Rule('')]
     public $published = '';
 
     #[Rule('required')]
@@ -64,11 +64,11 @@ class EditSneaker extends Component
 
     public function save()
     {
+        $this->slug = Str::slug($this->name);
+
         $this->validate();
 
         $image = $this->sneaker->image;
-
-        $this->slug = Str::slug($this->name);
 
         if (is_string($this->image)) {
             Sneaker::findOrFail($this->sneaker->id)->update($this->all());
