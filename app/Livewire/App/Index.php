@@ -30,6 +30,7 @@ class Index extends Component
                     'name' => $sneaker->name,
                     'image' => $sneaker->image,
                     'quantity' => $quantity,
+                    'size' => $sneaker->sizes[0],
                     'price' => $price,
                     'total_price' => (float)$price * $quantity
                 ]
@@ -45,6 +46,7 @@ class Index extends Component
                 'name' => $sneaker->name,
                 'image' => $sneaker->image,
                 'quantity' => $quantity,
+                'size' => $sneaker->sizes[0],
                 'price' => $price,
                 'total_price' => (float)$price * $quantity
             ];

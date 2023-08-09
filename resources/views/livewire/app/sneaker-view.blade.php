@@ -128,13 +128,18 @@
                             </div>
                         @endforeach
                     </div>
+                    <div class="text-red-500">
+                        @error('size')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                    </div>
                 </div>
             </div>
 
             <div class="mb-16 lg:mb-0">
                 <h1 class="text-2xl italic mb-2">Quantity</h1>
                 <div class="h-10 text-sm flex gap-4 rounded-lg font-bold relatives">
-                    <button {{-- wire:click='decrement' --}} id="minus" class="w-7 h-7 bg-white rounded-full text-black">
+                    <button wire:click='decrement' id="minus" class="w-7 h-7 bg-white rounded-full text-black">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-7 h-7">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -144,7 +149,7 @@
 
                     <span class="mt-1">{{ $quantity }}</span>
 
-                    <button {{-- wire:click='increment' --}} id="plus" class="w-7 h-7 bg-black rounded-full text-white">
+                    <button wire:click='increment' id="plus" class="w-7 h-7 bg-black rounded-full text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -154,8 +159,8 @@
                 </div>
 
                 <div class="w-full my-3">
-                    <a wire:click='addToCart({{ $sneaker->id }}, 1)'
-                        x-on:click="showNotification('Sneaker add to cart')"
+                    <a wire:click='addSneakerToCart({{ $sneaker->id }})'
+                        x-on::add-cart="showNotification('Sneaker add to cart')"
                         class="mb-3 cursor-pointer w-full h-10 bg-black py-2 flex items-center justify-center gap-4 text-xs text-white rounded-lg font-bold text-light shadow-md shadow-orange hover:brightness-125 transition select-none"
                         id="add-cart">
                         <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -240,7 +245,7 @@
                                     class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
                             </div>
                         </div>
-                        <a wire:click="addToCart({{ $sneaker->id }}, 1)"
+                        <a wire:click="addToCart({{ $sneaker->id }}, 1, {{ $sneaker->sizes[0] }})"
                             x-on:click="showNotification('Sneaker add to cart')"
                             class="flex items-center justify-center cursor-pointer rounded-md bg-black px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none"
@@ -313,7 +318,7 @@
                                     class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
                             </div>
                         </div>
-                        <a wire:click="addToCart({{ $sneaker->id }}, 1)"
+                        <a wire:click="addToCart({{ $sneaker->id }}, 1, {{ $sneaker->sizes[0] }})"
                             x-on:click="showNotification('Sneaker add to cart')"
                             class="flex items-center justify-center cursor-pointer rounded-md bg-white px-5 py-2.5 text-center text-sm font-medium text-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6" fill="none"

@@ -35,14 +35,13 @@
                                 src="{{ Storage::url($sneaker->image) }}" alt="" />
                             <div class="flex w-full flex-col px-4 py-4">
                                 <span class="font-semibold">{{ $sneaker->name }}</span>
-                                <span class="float-right text-gray-400">{{ $sneaker->quantity }}</span>
-                                {{-- Size --}}
+                                <span class="float-right text-gray-400">{{ $sneaker->size }} BR</span>
                                 <p class="text-lg font-bold">
                                     {{ $sneaker->quantity }} x {{ $sneaker->price }} = ${{ $sneaker->total_price }}
                                 </p>
                             </div>
 
-                            <div wire:click='removeItem({{ $sneaker->id }})' class="cursor-pointer w-6 h-6">
+                            <div wire:click='removeItem({{ $sneaker->id }})' class="cursor-pointer mt-3 w-6 h-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

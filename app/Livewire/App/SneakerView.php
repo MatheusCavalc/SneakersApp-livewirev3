@@ -6,6 +6,8 @@ use App\Models\Sneaker;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -13,8 +15,10 @@ class SneakerView extends Component
 {
     public Sneaker $sneaker;
 
+    #[Rule('required')]
     public $quantity = 1;
 
+    #[Rule('required')]
     public $size;
 
     public function mount($id, $slug)
@@ -43,7 +47,54 @@ class SneakerView extends Component
         $this->size = $size;
     }
 
-    public function addToCart(Sneaker $sneaker, $quantity)
+    public function addSneakerToCart(Sneaker $sneaker)
+    {
+        $this->validate();
+
+        $this->dispatch('add-cart'); //dont work
+
+        $cart = session()->get('cart');
+
+        if (!$cart) {
+            $price = $sneaker->in_promotion == true ? $sneaker->promotion_price : $sneaker->price;
+            $cart = [
+                $sneaker->id => [
+                    'id' => $sneaker->id,
+                    'name' => $sneaker->name,
+                    'image' => $sneaker->image,
+                    'quantity' => $this->quantity,
+                    'size' => $this->size,
+                    'price' => $price,
+                    'total_price' => (float)$price * $this->quantity
+                ]
+            ];
+
+            session()->put('cart', $cart);
+
+            $this->dispatch('add-cart');
+        }
+
+        if (isset($cart)) {
+            $price = $sneaker->in_promotion == true ? $sneaker->promotion_price : $sneaker->price;
+            $cart[$sneaker->id] = [
+                'id' => $sneaker->id,
+                'name' => $sneaker->name,
+                'image' => $sneaker->image,
+                'quantity' => $this->quantity,
+                'size' => $this->size,
+                'price' => $price,
+                'total_price' => (float)$price * $this->quantity
+            ];
+
+            session()->put('cart', $cart);
+
+            $this->dispatch('add-cart');
+        }
+
+        $this->dispatch('cart-updated');
+    }
+
+    public function addToCart(Sneaker $sneaker, $quantity, $size)
     {
         $cart = session()->get('cart');
 
@@ -55,6 +106,7 @@ class SneakerView extends Component
                     'name' => $sneaker->name,
                     'image' => $sneaker->image,
                     'quantity' => $quantity,
+                    'size' => $size,
                     'price' => $price,
                     'total_price' => (float)$price * $quantity
                 ]
@@ -70,6 +122,7 @@ class SneakerView extends Component
                 'name' => $sneaker->name,
                 'image' => $sneaker->image,
                 'quantity' => $quantity,
+                'size' => $size,
                 'price' => $price,
                 'total_price' => (float)$price * $quantity
             ];
