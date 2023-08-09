@@ -25,8 +25,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $dunklow = \App\Models\Sneaker::create([
+            'published' => true,
             'brand_id' => 1,
             'image' => 'public/sneakers/dunklow.webp',
+            'slug' => 'dunk-low-coast',
             'name' => 'Dunk Low Coast',
             'price' => '899',
             'promotion_price' => '799',
@@ -36,8 +38,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $airforce = \App\Models\Sneaker::create([
+            'published' => true,
             'brand_id' => 1,
             'image' => 'public/sneakers/airforce.webp',
+            'slug' => 'air-force-1-07-masculino',
             'name' => 'Air Force 1 07 Masculino',
             'price' => '799',
             'promotion_price' => '',

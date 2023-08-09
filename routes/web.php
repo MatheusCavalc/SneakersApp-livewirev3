@@ -34,7 +34,7 @@ use App\Livewire\App\Wishlist;
 */
 
 Route::get('/', Index::class);
-Route::get('/sneaker/{id}/slug', SneakerView::class);
+Route::get('/sneaker/{id}/{slug}', SneakerView::class);
 Route::get('/brands/{id}/slug', BrandView::class);
 
 Route::get('/search/sneaker/{search}', SearchView::class);

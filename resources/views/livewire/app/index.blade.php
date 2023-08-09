@@ -208,7 +208,7 @@
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                                    href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
+                                                    href="/sneaker/{{ $sneaker->id }}/{{$sneaker->slug}}" wire:navigate>
                                                     <img class="object-cover h-60 w-80"
                                                         src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
@@ -310,7 +310,7 @@
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-black transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                                    href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
+                                                    href="/sneaker/{{ $sneaker->id }}/{{$sneaker->slug}}" wire:navigate>
                                                     <img class="object-cover h-60 w-80"
                                                         src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
@@ -413,7 +413,7 @@
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                                    href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
+                                                    href="/sneaker/{{ $sneaker->id }}/{{$sneaker->slug}}" wire:navigate>
                                                     <img class="object-cover h-60 w-80"
                                                         src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />

@@ -14,10 +14,14 @@ return new class extends Migration
         Schema::create('sneakers', function (Blueprint $table) {
             $table->id();
 
+            $table->boolean('published')->default(false);
+
             $table->unsignedBigInteger('brand_id');
 
             $table->string('image');
             $table->string('name');
+
+            $table->string('slug', 2000);
 
             $table->string('price');
             $table->string('promotion_price')->nullable();

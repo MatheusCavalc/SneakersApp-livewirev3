@@ -21,7 +21,7 @@
 
             @foreach ($sneakers as $sneaker)
                 <div class="p-2 text-sm">
-                    <a href="/sneaker/{{ $sneaker->id }}/slug" wire:navigate>
+                    <a href="/sneaker/{{ $sneaker->id }}/{{$sneaker->slug}}" wire:navigate>
                         {{ $sneaker->name }}
                     </a>
                 </div>

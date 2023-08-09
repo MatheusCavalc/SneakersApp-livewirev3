@@ -17,7 +17,7 @@ class SneakerView extends Component
 
     public $size;
 
-    public function mount($id)
+    public function mount($id, $slug)
     {
         $this->sneaker = Sneaker::findOrFail($id);
     }

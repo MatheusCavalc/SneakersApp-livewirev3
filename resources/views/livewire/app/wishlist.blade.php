@@ -18,7 +18,7 @@
                     <div wire:key="{{ $sneaker->id }}"
                         class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
                         <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                            href="/sneaker/{{ $sneaker->sneaker->id }}/slug" wire:navigate>
+                            href="/sneaker/{{ $sneaker->sneaker->id }}/{{ $sneaker->sneaker->slug }}" wire:navigate>
                             <img class="object-cover h-60 w-80" src="{{ Storage::url($sneaker->sneaker->image) }}"
                                 alt="{{ $sneaker->sneaker->name }}" />
                             @if ($sneaker->sneaker->in_promotion)

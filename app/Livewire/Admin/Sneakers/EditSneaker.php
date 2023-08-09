@@ -9,6 +9,7 @@ use App\Models\Sneaker;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class EditSneaker extends Component
 {
@@ -17,10 +18,16 @@ class EditSneaker extends Component
     public Sneaker $sneaker;
 
     #[Rule('required')]
+    public $published = '';
+
+    #[Rule('required')]
     public $brand_id = '';
 
     #[Rule('required')] // 1MB Max
     public $image;
+
+    #[Rule('required')]
+    public $slug = '';
 
     #[Rule('required')]
     public $name = '';
@@ -44,6 +51,7 @@ class EditSneaker extends Component
     {
         $this->sneaker = Sneaker::findOrFail($id);
 
+        $this->published = $this->sneaker->published;
         $this->brand_id = $this->sneaker->brand_id;
         $this->image = $this->sneaker->image;
         $this->name = $this->sneaker->name;
@@ -59,6 +67,8 @@ class EditSneaker extends Component
         $this->validate();
 
         $image = $this->sneaker->image;
+
+        $this->slug = Str::slug($this->name);
 
         if (is_string($this->image)) {
             Sneaker::findOrFail($this->sneaker->id)->update($this->all());

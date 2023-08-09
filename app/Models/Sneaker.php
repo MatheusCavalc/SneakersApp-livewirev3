@@ -10,8 +10,10 @@ class Sneaker extends Model
     use HasFactory;
 
     protected $fillable = [
+        'published',
         'brand_id',
         'image',
+        'slug',
         'name',
         'price',
         'promotion_price',
@@ -31,6 +33,7 @@ class Sneaker extends Model
      * @var array<string, string>
      */
     protected $casts = [
+        'published' => 'boolean',
         'in_promotion' => 'boolean',
         'sizes' => 'array',
     ];

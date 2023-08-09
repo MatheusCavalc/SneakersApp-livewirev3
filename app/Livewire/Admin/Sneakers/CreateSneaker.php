@@ -8,10 +8,14 @@ use App\Models\Sneaker;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Rule;
+use Illuminate\Support\Str;
 
 class CreateSneaker extends Component
 {
     use WithFileUploads;
+
+    #[Rule('required')]
+    public $published = '';
 
     #[Rule('required')]
     public $brand_id = '';
@@ -42,8 +46,10 @@ class CreateSneaker extends Component
         $this->validate();
 
         Sneaker::create([
+            'published' => $this->published == '' ? false : $this->published,
             'brand_id' => $this->brand_id,
             'image' => $this->image->store('public/sneakers'),
+            'slug' => Str::slug($this->name),
             'name' => $this->name,
             'price' => $this->price,
             'promotion_price' => $this->promotion_price,
