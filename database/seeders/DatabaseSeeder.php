@@ -50,6 +50,21 @@ class DatabaseSeeder extends Seeder
             'sizes' => ["38","39"],
         ]);
 
+        $airforce = \App\Models\Sneaker::create([
+            'published' => true,
+            'brand_id' => 1,
+            'image' => 'public/sneakers/luka1easter.webp',
+            'slug' => 'luka-1-easter',
+            'name' => 'Luka 1 "Easter"',
+            'price' => '699',
+            'promotion_price' => '649',
+            'in_promotion' => true,
+            'color' => 'Blue + Purple',
+            'sizes' => ["38","39", "40"],
+        ]);
+
+
+
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

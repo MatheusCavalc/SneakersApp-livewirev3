@@ -21,6 +21,8 @@ use App\Livewire\App\OrdersView;
 use App\Livewire\App\SearchView;
 use App\Livewire\App\SneakerView;
 use App\Livewire\App\Wishlist;
+use App\Livewire\Admin\Orders\IndexOrder;
+use App\Livewire\Admin\Orders\ShowOrder;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,7 +65,8 @@ Route::get('/admin/brands', IndexBrand::class);
 Route::get('/admin/brands/create', CreateBrand::class);
 Route::get('/admin/brands/edit/{id}', EditBrand::class);
 
-
+Route::get('/admin/orders', IndexOrder::class);
+Route::get('/admin/orders/show/{id}', ShowOrder::class);
 
 
 Route::get('/welcome', function () {
