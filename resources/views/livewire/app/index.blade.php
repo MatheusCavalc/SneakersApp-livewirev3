@@ -208,8 +208,9 @@
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                                    href="/sneaker/{{ $sneaker->id }}/{{$sneaker->slug}}" wire:navigate>
-                                                    <img class="object-cover h-60 w-80"
+                                                    href="/sneaker/{{ $sneaker->id }}/{{ $sneaker->slug }}"
+                                                    wire:navigate>
+                                                    <img class="absolute transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-125     object-cover h-60 w-80"
                                                         src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
                                                     @if ($sneaker->in_promotion)
@@ -310,7 +311,8 @@
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-black transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                                    href="/sneaker/{{ $sneaker->id }}/{{$sneaker->slug}}" wire:navigate>
+                                                    href="/sneaker/{{ $sneaker->id }}/{{ $sneaker->slug }}"
+                                                    wire:navigate>
                                                     <img class="object-cover h-60 w-80"
                                                         src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
@@ -413,7 +415,8 @@
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-                                                    href="/sneaker/{{ $sneaker->id }}/{{$sneaker->slug}}" wire:navigate>
+                                                    href="/sneaker/{{ $sneaker->id }}/{{ $sneaker->slug }}"
+                                                    wire:navigate>
                                                     <img class="object-cover h-60 w-80"
                                                         src="{{ Storage::url($sneaker->image) }}"
                                                         alt="{{ $sneaker->name }}" />
@@ -507,11 +510,11 @@
                 </div>
             </div>
             <div class="flex justify-center bg-white">
-                <div class="grid grid-cols-3 md:flex gap-4 my-7 mx-5">
+                <div class="grid grid-cols-3 md:flex gap-4 my-7 mx-5 h-32">
                     @foreach ($allBrands as $brand)
                         <a href="/brands/{{ $brand->id }}/slug" wire:navigate class="hover:italic">
                             <div>
-                                <img class="object-cover h-20 w-20 md:h-24 md:w-24 rounded-full border-2 border-black p-1 hover:border-white hover:bg-black"
+                                <img class="object-cover h-20 w-20 md:h-24 md:w-24 md:hover:h-28 md:hover:w-28 rounded-full border border-black p-1 hover:border-2"
                                     src="{{ Storage::url($brand->logo) }}" alt="{{ $brand->name }}" />
                             </div>
                             <div>

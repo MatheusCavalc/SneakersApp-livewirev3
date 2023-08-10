@@ -15,12 +15,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $nike = \App\Models\Brand::create([
-            'logo' => 'public/brands/nike.png',
+            'logo' => 'public/brands/nike-tr.png',
             'name' => 'Nike',
         ]);
 
         $adidas = \App\Models\Brand::create([
-            'logo' => 'public/brands/adidas.png',
+            'logo' => 'public/brands/adidas-tr.png',
             'name' => 'Adidas',
         ]);
 
