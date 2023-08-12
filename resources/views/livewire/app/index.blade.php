@@ -231,6 +231,7 @@
                                                         </svg>
                                                     </a>
                                                 </a>
+
                                                 <div class="mt-4 px-5 pb-5">
                                                     <a href="#">
                                                         <h5 class="text-xl tracking-tight text-slate-900">
@@ -259,7 +260,7 @@
                                                                 </path>
                                                             </svg>
                                                             <span
-                                                                class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                                                                class="mr-2 ml-3 rounded bg-black text-white px-2.5 py-0.5 text-xs font-semibold">5.0</span>
                                                         </div>
                                                     </div>
                                                     <a wire:click="addToCart({{ $sneaker->id }}, 1)"
@@ -307,7 +308,7 @@
                                 <div class="mx-auto max-w-2xl px-4 py-1 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
                                     <div class="mt-2 md:flex md:justify-evenly">
 
-                                        @foreach ($sneakersAirJordan as $sneaker)
+                                        @foreach ($sneakersNike as $sneaker)
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-black transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
@@ -362,12 +363,12 @@
                                                                 </path>
                                                             </svg>
                                                             <span
-                                                                class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+                                                                class="mr-2 ml-3 rounded bg-white px-2.5 py-0.5 text-xs font-semibold">5.0</span>
                                                         </div>
                                                     </div>
                                                     <a wire:click="addToCart({{ $sneaker->id }}, 1)"
                                                         x-on:click="showNotification('Sneaker add to cart')"
-                                                        class="flex items-center justify-center cursor-pointer rounded-md bg-white px-5 py-2.5 text-center text-sm font-medium text-black hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                                                        class="flex items-center justify-center cursor-pointer rounded-md bg-white px-5 py-2.5 text-center text-sm font-medium text-black hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-blue-300">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-6 w-6"
                                                             fill="none" viewBox="0 0 24 24" stroke="currentColor"
                                                             stroke-width="2">
@@ -411,7 +412,7 @@
                                     <div class="mt-2 md:flex md:justify-evenly">
 
 
-                                        @foreach ($sneakersAdidas as $sneaker)
+                                        @foreach ($sneakersNike as $sneaker)
                                             <div
                                                 class="relative mb-5 md:mb-0 mx-auto md:mx-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white transition shadow-white duration-300 lg:hover:shadow-xl">
                                                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"

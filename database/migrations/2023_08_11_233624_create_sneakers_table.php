@@ -32,9 +32,12 @@ return new class extends Migration
             //array
             $table->string('sizes');
 
+            $table->unsignedBigInteger('collection_id')->nullable();
+
             //images
 
             $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('collection_id')->references('id')->on('collections');
             $table->timestamps();
         });
     }

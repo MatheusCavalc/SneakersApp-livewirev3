@@ -47,6 +47,9 @@ class EditSneaker extends Component
     #[Rule('required')]
     public $sizes = [];
 
+    #[Rule('')]
+    public $collection_id = '';
+
     public function mount($id)
     {
         $this->sneaker = Sneaker::findOrFail($id);
@@ -60,6 +63,7 @@ class EditSneaker extends Component
         $this->in_promotion = $this->sneaker->in_promotion;
         $this->color = $this->sneaker->color;
         $this->sizes = $this->sneaker->sizes;
+        $this->collection_id = $this->sneaker->collection_id;
     }
 
     public function save()

@@ -20,6 +20,7 @@ class Sneaker extends Model
         'in_promotion',
         'color',
         'sizes',
+        'collection_id'
     ];
 
     public function brand()

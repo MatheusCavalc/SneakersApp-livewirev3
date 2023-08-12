@@ -24,6 +24,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Adidas',
         ]);
 
+        $adidas = \App\Models\Collection::create([
+            'name' => 'Luka',
+            'brand_id' => 1,
+        ]);
+
         $dunklow = \App\Models\Sneaker::create([
             'published' => true,
             'brand_id' => 1,

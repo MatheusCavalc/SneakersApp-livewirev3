@@ -41,6 +41,9 @@ class CreateSneaker extends Component
     #[Rule('required')]
     public $sizes = [];
 
+    #[Rule('')]
+    public $collection_id = '';
+
     public function save()
     {
         $this->validate();
@@ -56,6 +59,7 @@ class CreateSneaker extends Component
             'in_promotion' => $this->in_promotion == '' ? false : $this->in_promotion,
             'color' => $this->color,
             'sizes' => $this->sizes,
+            'collection_id' => $this->collection_id,
         ]);
 
         return $this->redirect('/admin/sneakers');
