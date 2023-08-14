@@ -18,14 +18,14 @@
             <div class="md:flex md:gap-10">
                 <div>
                     <div class="flex justify-center">
-                        <a href="/collections" wire:navigate class="text-center text-white font-bold italic text-xl">Collections</a>
+                        <h1 class="text-center text-white font-bold italic text-xl">Collections</h1>
                     </div>
 
                     <div>
                         <ul class="py-2">
                             @foreach (\App\Models\Collection::all() as $collection)
                                 <li class="text-white">
-                                    <a href="#" class="block px-4 py-2 hover:underline font-bold">
+                                    <a href="/collections/details/{{ $collection->id }}" wire:navigate class="block px-4 py-2 hover:underline font-bold">
                                         {{ $collection->brand->name }}
                                         {{ $collection->name }}</a>
                                 </li>

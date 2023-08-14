@@ -5,7 +5,7 @@
         </div>
 
         <div class="md:col-span-3 mt-10 md:mt-0 flex justify center">
-            <div class="md:grid md:grid-cols-3 mx-3">
+            <div class="md:grid md:grid-cols-3 gap-4 mx-3">
 
                 @foreach ($collections as $collection)
                     <a href="/collections/details/{{ $collection->id }}" wire:navigate>

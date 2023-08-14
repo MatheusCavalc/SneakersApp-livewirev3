@@ -9,6 +9,9 @@ use App\Livewire\Admin\Brands\EditBrand;
 use Illuminate\Support\Facades\Route;
 
 use App\Livewire\Admin\Brands\IndexBrand;
+use App\Livewire\Admin\Collections\EditCollection;
+use App\Livewire\Admin\Collections\IndexCollection;
+use App\Livewire\Admin\Collections\CreateCollection;
 use App\Livewire\Admin\IndexAdmin;
 use App\Livewire\Admin\Sneakers\CreateSneaker;
 use App\Livewire\Admin\Sneakers\EditSneaker;
@@ -69,6 +72,10 @@ Route::get('/admin/sneakers/edit/{id}', EditSneaker::class);
 Route::get('/admin/brands', IndexBrand::class);
 Route::get('/admin/brands/create', CreateBrand::class);
 Route::get('/admin/brands/edit/{id}', EditBrand::class);
+
+Route::get('/admin/collections', IndexCollection::class);
+Route::get('/admin/collections/create', CreateCollection::class);
+Route::get('/admin/collections/edit/{id}', EditCollection::class);
 
 Route::get('/admin/orders', IndexOrder::class);
 Route::get('/admin/orders/show/{id}', ShowOrder::class);
