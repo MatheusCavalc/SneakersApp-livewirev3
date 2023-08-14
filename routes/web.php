@@ -23,6 +23,8 @@ use App\Livewire\App\SneakerView;
 use App\Livewire\App\Wishlist;
 use App\Livewire\Admin\Orders\IndexOrder;
 use App\Livewire\Admin\Orders\ShowOrder;
+use App\Livewire\App\CollectionDetailsView;
+use App\Livewire\App\CollectionsView;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,9 @@ Route::get('/my-orders/details/{id}', OrderDetailsView::class);
 
 Route::get('/checkout', CheckoutView::class);
 
+Route::get('/collections', CollectionsView::class);
+
+Route::get('/collections/details/{id}', CollectionDetailsView::class);
 
 
 

@@ -15,9 +15,11 @@
             x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
             class="absolute p-4 z-10 font-normal divide-y divide-gray-100 rounded-lg shadow bg-black">
 
-            <div class="flex gap-10">
+            <div class="md:flex md:gap-10">
                 <div>
-                    <h1 class="text-center text-white font-bold italic text-xl">Collections</h1>
+                    <div class="flex justify-center">
+                        <a href="/collections" wire:navigate class="text-center text-white font-bold italic text-xl">Collections</a>
+                    </div>
 
                     <div>
                         <ul class="py-2">
@@ -41,7 +43,7 @@
                                 <a href="/brands/{{ $brand->id }}/slug" wire:navigate
                                     class="hover:italic hover:underline font-bold">
                                     <div class="bg-white rounded-full">
-                                        <img class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-125 object-cover h-20 w-20 md:h-10 md:w-14 p-1"
+                                        <img class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-125 object-cover h-10 w-14 md:h-10 md:w-14 p-1"
                                             src="{{ Storage::url($brand->logo) }}" alt="{{ $brand->name }}" />
                                     </div>
                                     <div>

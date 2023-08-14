@@ -11,7 +11,9 @@ class Collection extends Model
 
     protected $fillable = [
         'name',
-        'brand_id'
+        'brand_id',
+        'image',
+        'description'
     ];
 
     public function brand()
