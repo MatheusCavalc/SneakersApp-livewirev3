@@ -28,6 +28,8 @@ use App\Livewire\Admin\Orders\IndexOrder;
 use App\Livewire\Admin\Orders\ShowOrder;
 use App\Livewire\App\CollectionDetailsView;
 use App\Livewire\App\CollectionsView;
+use App\Livewire\Checkout\CheckoutSuccess;
+use App\Livewire\Checkout\CheckoutFailure;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,11 @@ Route::get('/checkout', CheckoutView::class);
 Route::get('/collections', CollectionsView::class);
 
 Route::get('/collections/details/{id}', CollectionDetailsView::class);
+
+Route::get('/checkout/success', CheckoutSuccess::class);
+
+Route::get('/checkout/failure', CheckoutFailure::class);
+
 
 
 

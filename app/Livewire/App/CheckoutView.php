@@ -50,6 +50,7 @@ class CheckoutView extends Component
 
         $this->validate();
 
+        //sync
         $order = Order::create($this->all());
 
         if ($order) {
@@ -58,9 +59,34 @@ class CheckoutView extends Component
             $this->dispatch('cart-updated');
         }
 
-        //dd($order);
 
         //CHECKOUT (PAYMENT)
+        /*
+        Stripe::setApiKey(getenv('STRIPE_SECRET'));
+
+        $lineItems = [];
+        foreach ($this->sneakers as $sneaker) {
+            $lineItems[] = [
+                'price_data' => [
+                    'currency' => 'usd',
+                    'sneaker_data' => [
+                        'name' => $sneaker['name'],
+                    ],
+                    'unit_amount_decimal' => $sneaker['price'] * 100,
+                ],
+                'quantity' => $sneaker['quantity'],
+            ];
+        }
+
+        $session = Session::create([
+            'line_items' => $lineItems,
+            'mode' => 'payment',
+            'success_url' => route('/checkout/success', ['order_id' => $order->id], true) . '&session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('/checkout/failure', ['order_id' => $order->id], true),
+        ]);
+
+        return redirect($session->url);
+        */
     }
 
     public function removeItem($sneaker_id)
