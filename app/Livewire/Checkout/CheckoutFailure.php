@@ -5,6 +5,8 @@ namespace App\Livewire\Checkout;
 use App\Enums\PaymentStatus;
 use App\Jobs\UpdateOrderJob;
 use Illuminate\Http\Request;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class CheckoutFailure extends Component
@@ -21,9 +23,11 @@ class CheckoutFailure extends Component
         new UpdateOrderJob($this->order_id, PaymentStatus::Failed);
     }
 
+    #[Layout('layouts.main')]
+    #[Title('Home')]
     public function render()
     {
-        $this->failure();
+        //$this->failure();
 
         return view('livewire.checkout.checkout-failure');
     }

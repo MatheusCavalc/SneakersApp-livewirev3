@@ -16,10 +16,9 @@ class OrderData extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        protected $order
+    ) {}
 
     /**
      * Get the message envelope.
@@ -27,7 +26,7 @@ class OrderData extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Order Data',
+            subject: 'Purchase details',
         );
     }
 
@@ -37,7 +36,10 @@ class OrderData extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.order',
+            with: [
+                'order' => $this->order
+            ]
         );
     }
 

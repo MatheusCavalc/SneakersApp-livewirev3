@@ -7,6 +7,8 @@ use App\Jobs\SendOrderEmailJob;
 use App\Jobs\UpdateOrderJob;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
 class CheckoutSuccess extends Component
@@ -35,9 +37,11 @@ class CheckoutSuccess extends Component
         ])->dispatch($this->order_id, PaymentStatus::Paid, /*$session->payment_intent*/);
     }
 
+    #[Layout('layouts.main')]
+    #[Title('Home')]
     public function render()
     {
-        $this->success();
+        //$this->success();
 
         return view('livewire.checkout.checkout-success');
     }
