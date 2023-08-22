@@ -150,7 +150,7 @@ class SneakerView extends Component
     }
 
     #[Layout('layouts.main')]
-    #[Title('Home')]
+    #[Title('Sneaker')]
     public function render()
     {
         return view('livewire.app.sneaker-view');

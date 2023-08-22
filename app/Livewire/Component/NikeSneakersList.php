@@ -1,23 +1,14 @@
 <?php
 
-namespace App\Livewire\App;
+namespace App\Livewire\Component;
 
-use App\Models\Collection;
 use App\Models\Sneaker;
 use App\Models\Wishlist;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Layout;
-use Livewire\Attributes\Title;
 use Livewire\Component;
 
-class CollectionDetailsView extends Component
+class NikeSneakersList extends Component
 {
-    public Collection $collection;
-
-    public function mount($id)
-    {
-        $this->collection = Collection::findOrFail($id);
-    }
 
     public function addToCart(Sneaker $sneaker, $quantity)
     {
@@ -60,6 +51,10 @@ class CollectionDetailsView extends Component
 
     public function addToWishlist($id)
     {
+        if (!auth()->user()) {
+            return $this->redirect('/login');
+        }
+
         $data = Wishlist::where('sneaker_id', $id)->where('wishlist_owner', Auth::user()->id)->exists();
 
         if (Sneaker::find($id)) {
@@ -74,12 +69,10 @@ class CollectionDetailsView extends Component
         }
     }
 
-    #[Layout('layouts.main')]
-    #[Title('Home')]
     public function render()
     {
-        return view('livewire.app.collection-details-view', [
-            'sneakers' => Sneaker::where('brand_id', 1)->orderBy('id', 'desc')->take(3)->get()
+        return view('livewire.component.nike-sneakers-list', [
+            'sneakersNike' => Sneaker::all(),
         ]);
     }
 }

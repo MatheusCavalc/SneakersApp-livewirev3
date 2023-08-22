@@ -37,7 +37,8 @@
                             <div class="max-w-2xl px-4 py-1 mx-auto sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8">
                                 <div class="mt-2 md:flex md:justify-evenly">
 
-                                    @foreach ($collection->sneakers as $sneaker)
+                                   {{-- @foreach ($collection->sneakers as $sneaker) --}}
+                                   @foreach ($sneakers as $sneaker)
                                         <div
                                             class="flex flex-col max-w-xs mx-auto mb-5 overflow-hidden transition duration-300 bg-white border border-gray-100 rounded-lg md:mb-0 md:mx-10 shadow-white lg:hover:shadow-xl">
                                             <div class="flex mt-3 overflow-hidden h-60 md:h-60 md:w-80 rounded-xl">

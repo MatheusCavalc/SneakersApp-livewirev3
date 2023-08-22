@@ -58,7 +58,7 @@
                 <div id="1"
                     class="w-1/5 cursor-pointer rounded-xl sm:w-28 md:w-32 lg:w-[72px] xl:w-[78px] ring-active">
                     <img src="{{ Storage::url($sneaker->image) }}" alt="thumbnail"
-                        class="rounded-xl hover:opacity-50 transition active" id="thumb-1" />
+                        class="rounded-xl border hover:opacity-50 hover:shadow-xl transition active" id="thumb-1" />
                 </div>
             </div>
         </section>

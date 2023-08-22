@@ -31,6 +31,27 @@ class DatabaseSeeder extends Seeder
             'image' => 'public/collections/luka-collection.avif',
         ]);
 
+        $lebron_collection = \App\Models\Collection::create([
+            'name' => 'Lebron',
+            'brand_id' => 1,
+            'description' => 'Designed for #77 and made for every athlete craving speed and efficiency, Lukas debut delivers the goods. The first shoe with full-length Formula 23 foam, it has an ultra-supportive fit crafted with the step-back in mind. Meanwhile, strong and lightweight Flight Wire cables keep you feeling contained, whether youre playing indoors or out. This is the assist youve been waiting for—get out there and make your shot.',
+            'image' => 'public/collections/lebron-collection.jpg',
+        ]);
+
+        $ja_collection = \App\Models\Collection::create([
+            'name' => 'Ja',
+            'brand_id' => 1,
+            'description' => 'Designed for #77 and made for every athlete craving speed and efficiency, Lukas debut delivers the goods. The first shoe with full-length Formula 23 foam, it has an ultra-supportive fit crafted with the step-back in mind. Meanwhile, strong and lightweight Flight Wire cables keep you feeling contained, whether youre playing indoors or out. This is the assist youve been waiting for—get out there and make your shot.',
+            'image' => 'public/collections/ja-collection.jpg',
+        ]);
+
+        $pg_collection = \App\Models\Collection::create([
+            'name' => 'PG',
+            'brand_id' => 1,
+            'description' => 'Designed for #77 and made for every athlete craving speed and efficiency, Lukas debut delivers the goods. The first shoe with full-length Formula 23 foam, it has an ultra-supportive fit crafted with the step-back in mind. Meanwhile, strong and lightweight Flight Wire cables keep you feeling contained, whether youre playing indoors or out. This is the assist youve been waiting for—get out there and make your shot.',
+            'image' => 'public/collections/pg-collection.webp',
+        ]);
+
         $dunklow = \App\Models\Sneaker::create([
             'published' => true,
             'brand_id' => 1,
