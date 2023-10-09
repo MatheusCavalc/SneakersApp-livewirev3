@@ -171,12 +171,6 @@
             </div>
         </div>
 
-        {{--
-            <div>
-            Collections
-            </div>
-        --}}
-
         {{-- Top Brands --}}
         <div class="">
 
@@ -197,9 +191,11 @@
             --}}
         </div>
 
-        <div>
-            <livewire:component.collections-home />
-        </div>
+        {{--
+            <div>
+                <livewire:component.collections-home />
+            </div>
+        --}}
 
         {{-- Brands --}}
         <div class="">

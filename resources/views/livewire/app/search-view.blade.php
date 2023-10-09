@@ -15,12 +15,12 @@
             <p>Home</p>
         </div>
 
-        <div class="md:grid md:grid-cols-4 md:mx-16">
-            <div class="pt-5 mr-14">
-                <h1 class="text-3xl">Search</h1>
+        <div class="md:grid md:grid-cols-5 md:mx-16">
+            <div class="pt-5">
+                <h1 class="text-3xl ml-6 md:ml-0">Search: {{$search}}</h1>
             </div>
 
-            <div class="col-span-3">
+            <div class="col-span-4 mt-10 md:mt-14">
                 <div class="mt-10 md:grid md:grid-cols-3 md:gap-1">
 
                     @foreach ($sneakers as $sneaker)

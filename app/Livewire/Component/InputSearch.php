@@ -11,8 +11,7 @@ class InputSearch extends Component
 
     public function searchSneakers()
     {
-        return $this->redirect('/search/sneaker' . '/' . $this->search);
-        //return $this->redirect('/search/sneaker' . '/' . $this->search, navigate: true);
+        return $this->redirect('/search/sneaker' . '/' . $this->search, true);
     }
 
     public function render()

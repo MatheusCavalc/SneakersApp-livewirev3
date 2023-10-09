@@ -1,3 +1,49 @@
+# Instalando o projeto
+
+O projeto se utiliza de PHP 8.1, portanto, é necessário que ele esteja instalado na máquina.
+
+### Passos para o rodar o projeto localmente:
+
+- Faça um clone do projeto para sua máquina local
+```shell
+git clone https://github.com/MatheusCavalc/Diecast-Ecommerce
+```
+- Navegue até o diretório raiz do projeto clonado e execute o comando abaixo para instalar as dependências do projeto:
+```shell
+composer install
+```
+- Copie o arquivo .env.example, renomeie para .env e preencha com suas informações de banco de dados e outras configurações relevantes. Você pode fazer isso executando o seguinte comando:
+```shell
+cp .env.example .env
+```
+- Gere uma chave de aplicativo Laravel usando o seguinte comando:
+```shell
+php artisan key:generate
+```
+- Execute o comando abaixo para popular o banco de dados com as tabelas necessárias para a aplicação:
+```shell
+php artisan migrate
+```
+- Para instalar as dependências do NPM no projeto execute o comando:
+```shell
+npm install
+```
+- Como os arquivos de mídia, como as fotos dos produtos, estão armazenados na pasta 'storage', o comando abaixo precisa ser executado.
+```shell
+php artisan storage:link
+```
+- Para iniciar o servidor de desenvolvimento execute o comando em um terminal:
+```shell
+php artisan serve
+```
+- Para compilar os arquivos da aplicação execute o comando abaixo em outro terminal:
+```shell
+npm run dev
+```
+
+Depois que os comandos acima forem executados, você poderá acessar seu aplicativo Laravel em http://localhost:8000.
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
